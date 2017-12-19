@@ -1,0 +1,6 @@
+class BandRole
+instance variables
+  band_role :Band;
+  desired_role:seq of (char);
+
+end BandRole

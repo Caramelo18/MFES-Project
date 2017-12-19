@@ -1,0 +1,8 @@
+class Venue
+instance variables
+  capacity:int;
+  lighting:seq of (char);
+  sound:seq of (char);
+  stage_area:seq of (char);
+
+end Venue

@@ -1,0 +1,5 @@
+class PlaceOffer
+instance variables
+  rent_place:Place;
+
+end PlaceOffer

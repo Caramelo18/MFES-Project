@@ -1,0 +1,5 @@
+class Artist
+instance variables
+  instrument:seq of (char);
+
+end Artist

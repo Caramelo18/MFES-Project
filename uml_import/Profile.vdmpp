@@ -1,0 +1,5 @@
+class Profile
+instance variables
+  Name:seq of (char);
+
+end Profile

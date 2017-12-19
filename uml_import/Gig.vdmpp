@@ -1,0 +1,11 @@
+class Gig
+	types 
+		public Date :: year : nat
+									 month: nat
+									 day  : nat;
+	instance variables
+	  performing_Bands:set of (Band);
+	  venue:Venue;
+	  date: Date;
+
+end Gig

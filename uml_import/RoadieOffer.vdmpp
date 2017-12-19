@@ -1,0 +1,5 @@
+class RoadieOffer
+instance variables
+  band:Band;
+
+end RoadieOffer

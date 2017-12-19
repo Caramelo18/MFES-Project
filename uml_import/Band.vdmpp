@@ -1,0 +1,5 @@
+class Band
+instance variables
+  genre:seq of (char);
+
+end Band

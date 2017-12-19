@@ -1,0 +1,11 @@
+class HireBand
+	types 
+		public Date :: year : nat
+									 month: nat
+									 day  : nat;
+	instance variables
+	  eventOrganizer:EventOrganizer;
+	  location:seq of (char);
+	  date: Date;
+
+end HireBand

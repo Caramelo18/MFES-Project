@@ -1,0 +1,6 @@
+class Place
+instance variables
+  placeOwner:PlaceOwner;
+  location:seq of (char);
+
+end Place

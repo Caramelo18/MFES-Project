@@ -1,0 +1,7 @@
+class Studio
+instance variables
+  rehearsal:bool;
+  recording:bool;
+  area:seq of (char);
+
+end Studio

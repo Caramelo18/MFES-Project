@@ -1,0 +1,5 @@
+class Roadie
+instance variables
+  task:seq of (char);
+
+end Roadie
