@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:default="http:///schemas/default/_BK46kOT_Eeez3pH5BLyyJQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/default/_BK46kOT_Eeez3pH5BLyyJQ/0 default.profile.uml#_BL5AJ-T_Eeez3pH5BLyyJQ">
+  <uml:Model xmi:id="_BKyM4OT_Eeez3pH5BLyyJQ" name="jyve">
+    <eAnnotations xmi:id="_BKyM4eT_Eeez3pH5BLyyJQ" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_BKyM4uT_Eeez3pH5BLyyJQ" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_BKyM4-T_Eeez3pH5BLyyJQ" value="3.0.0"/>
+      </contents>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM5OT_Eeez3pH5BLyyJQ" name="Profile" isAbstract="true">
+      <ownedComment xmi:id="_BKyM5eT_Eeez3pH5BLyyJQ">
+        <body>&lt;Enter note text here></body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_BKyM5uT_Eeez3pH5BLyyJQ" name="Name" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM5-T_Eeez3pH5BLyyJQ" name="Artist">
+      <generalization xmi:id="_BKyM6OT_Eeez3pH5BLyyJQ" general="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyM6eT_Eeez3pH5BLyyJQ" name="instrument" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM6uT_Eeez3pH5BLyyJQ" name="Band">
+      <generalization xmi:id="_BKyM6-T_Eeez3pH5BLyyJQ" general="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyM7OT_Eeez3pH5BLyyJQ" name="genre" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM7eT_Eeez3pH5BLyyJQ" name="Roadie">
+      <generalization xmi:id="_BKyM7uT_Eeez3pH5BLyyJQ" general="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyM7-T_Eeez3pH5BLyyJQ" name="task" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM8OT_Eeez3pH5BLyyJQ" name="PlaceOwner">
+      <generalization xmi:id="_BKyM8eT_Eeez3pH5BLyyJQ" general="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM8uT_Eeez3pH5BLyyJQ" name="Place" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM8-T_Eeez3pH5BLyyJQ" name="Venue">
+      <generalization xmi:id="_BKyM9OT_Eeez3pH5BLyyJQ" general="_BKyM8uT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyM9eT_Eeez3pH5BLyyJQ" name="capacity" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyM9uT_Eeez3pH5BLyyJQ" name="lighting" visibility="public" isUnique="false">
+        <ownedComment xmi:id="_BKyM9-T_Eeez3pH5BLyyJQ">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyM-OT_Eeez3pH5BLyyJQ" name="sound" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyM-eT_Eeez3pH5BLyyJQ" name="stage_area" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyM-uT_Eeez3pH5BLyyJQ" name="Studio">
+      <ownedComment xmi:id="_BKyM--T_Eeez3pH5BLyyJQ">
+        <body>&lt;Enter note text here></body>
+      </ownedComment>
+      <generalization xmi:id="_BKyM_OT_Eeez3pH5BLyyJQ" general="_BKyM8uT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyM_eT_Eeez3pH5BLyyJQ" name="rehearsal" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyM_uT_Eeez3pH5BLyyJQ" name="recording" visibility="public" isUnique="false">
+        <ownedComment xmi:id="_BKyM_-T_Eeez3pH5BLyyJQ">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyNAOT_Eeez3pH5BLyyJQ" name="area" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyNAeT_Eeez3pH5BLyyJQ" name="Offer" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyNAuT_Eeez3pH5BLyyJQ" name="BandRole">
+      <generalization xmi:id="_BKyNA-T_Eeez3pH5BLyyJQ" general="_BKyNAeT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyNBOT_Eeez3pH5BLyyJQ" name="band" visibility="public" type="_BKyM6uT_Eeez3pH5BLyyJQ" association="_BKyNBuT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyNBeT_Eeez3pH5BLyyJQ" name="desired_role" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BKyNBuT_Eeez3pH5BLyyJQ" memberEnd="_BKyNBOT_Eeez3pH5BLyyJQ _BKyNB-T_Eeez3pH5BLyyJQ">
+      <ownedEnd xmi:id="_BKyNB-T_Eeez3pH5BLyyJQ" visibility="public" type="_BKyNAuT_Eeez3pH5BLyyJQ" association="_BKyNBuT_Eeez3pH5BLyyJQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BKyNCOT_Eeez3pH5BLyyJQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyNCeT_Eeez3pH5BLyyJQ" name="Gig">
+      <ownedAttribute xmi:id="_BKyNCuT_Eeez3pH5BLyyJQ" name="performing_Bands" visibility="public" type="_BKyM6uT_Eeez3pH5BLyyJQ" association="_BKyNDeT_Eeez3pH5BLyyJQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BKyNC-T_Eeez3pH5BLyyJQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_BKyNDOT_Eeez3pH5BLyyJQ" name="venue" visibility="public" type="_BKyM8-T_Eeez3pH5BLyyJQ" association="_BKyND-T_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BKyNDeT_Eeez3pH5BLyyJQ" memberEnd="_BKyNCuT_Eeez3pH5BLyyJQ _BKyNDuT_Eeez3pH5BLyyJQ">
+      <ownedEnd xmi:id="_BKyNDuT_Eeez3pH5BLyyJQ" visibility="public" type="_BKyNCeT_Eeez3pH5BLyyJQ" association="_BKyNDeT_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BKyND-T_Eeez3pH5BLyyJQ" memberEnd="_BKyNDOT_Eeez3pH5BLyyJQ _BKyNEOT_Eeez3pH5BLyyJQ">
+      <ownedEnd xmi:id="_BKyNEOT_Eeez3pH5BLyyJQ" visibility="public" type="_BKyNCeT_Eeez3pH5BLyyJQ" association="_BKyND-T_Eeez3pH5BLyyJQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BKyNEeT_Eeez3pH5BLyyJQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BKyNEuT_Eeez3pH5BLyyJQ"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyNE-T_Eeez3pH5BLyyJQ" name="ArtistRole">
+      <ownedComment xmi:id="_BKyNFOT_Eeez3pH5BLyyJQ">
+        <body>&lt;Enter note text here></body>
+      </ownedComment>
+      <generalization xmi:id="_BKyNFeT_Eeez3pH5BLyyJQ" general="_BKyNAeT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyNFuT_Eeez3pH5BLyyJQ" name="artist" visibility="public" type="_BKyM5-T_Eeez3pH5BLyyJQ" association="_BKyNF-T_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BKyNF-T_Eeez3pH5BLyyJQ" memberEnd="_BKyNFuT_Eeez3pH5BLyyJQ _BKyNGOT_Eeez3pH5BLyyJQ">
+      <ownedEnd xmi:id="_BKyNGOT_Eeez3pH5BLyyJQ" visibility="public" type="_BKyNE-T_Eeez3pH5BLyyJQ" association="_BKyNF-T_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BKyNGeT_Eeez3pH5BLyyJQ" name="PlaceOffer">
+      <generalization xmi:id="_BKyNGuT_Eeez3pH5BLyyJQ" general="_BKyNAeT_Eeez3pH5BLyyJQ"/>
+      <ownedAttribute xmi:id="_BKyNG-T_Eeez3pH5BLyyJQ" name="studio" visibility="public" type="_BKyM-uT_Eeez3pH5BLyyJQ" association="_BKyNHOT_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BKyNHOT_Eeez3pH5BLyyJQ" memberEnd="_BKyNG-T_Eeez3pH5BLyyJQ _BKyNHeT_Eeez3pH5BLyyJQ">
+      <ownedEnd xmi:id="_BKyNHeT_Eeez3pH5BLyyJQ" visibility="public" type="_BKyNGeT_Eeez3pH5BLyyJQ" association="_BKyNHOT_Eeez3pH5BLyyJQ"/>
+    </packagedElement>
+    <profileApplication xmi:id="_BMT24OT_Eeez3pH5BLyyJQ">
+      <eAnnotations xmi:id="_BMT24eT_Eeez3pH5BLyyJQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.uml#_BL5AJ-T_Eeez3pH5BLyyJQ"/>
+      </eAnnotations>
+      <appliedProfile href="default.profile.uml#_BL5AIOT_Eeez3pH5BLyyJQ"/>
+    </profileApplication>
+  </uml:Model>
+  <default:type xmi:id="_BMUd8OT_Eeez3pH5BLyyJQ" base_Element="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+  <default:implementationClass xmi:id="_BMUd8eT_Eeez3pH5BLyyJQ" base_Element="_BKyM5OT_Eeez3pH5BLyyJQ"/>
+  <default:type xmi:id="_BMVFAOT_Eeez3pH5BLyyJQ" base_Element="_BKyM5-T_Eeez3pH5BLyyJQ"/>
+</xmi:XMI>
