@@ -1,0 +1,19 @@
+class ArtistOffer is subclass of Offer
+instance variables
+  artist:Artist;
+
+operations
+  public  createArtistOffer : ()  ==> ?
+  createArtistOffer() ==
+    is not yet specified;
+
+  public  listArtistOffer : ()  ==> ?
+  listArtistOffer() ==
+    is not yet specified;
+
+  public  deleteArtistOffer : ()  ==> ?
+  deleteArtistOffer() ==
+    is not yet specified;
+
+
+end ArtistOffer

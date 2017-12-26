@@ -1,6 +1,20 @@
-class BandRole
+class BandRole is subclass of Offer
 instance variables
-  band_role :Band;
+  band_role_offer:Band;
   desired_role:seq of (char);
+
+operations
+  public  createBandRoleOffer : ()  ==> ?
+  createBandRoleOffer() ==
+    is not yet specified;
+
+  public  listBandRoleOffer : ()  ==> ?
+  listBandRoleOffer() ==
+    is not yet specified;
+
+  public  deleteBandRoleOffer : ()  ==> ?
+  deleteBandRoleOffer() ==
+    is not yet specified;
+
 
 end BandRole

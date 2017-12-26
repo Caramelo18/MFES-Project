@@ -1,5 +1,0 @@
-class ArtistRole
-instance variables
-  artist:Artist;
-
-end ArtistRole

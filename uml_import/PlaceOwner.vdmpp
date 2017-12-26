@@ -1,2 +1,2 @@
-class PlaceOwner
+class PlaceOwner is subclass of Profile
 end PlaceOwner

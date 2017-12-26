@@ -1,4 +1,4 @@
-class Studio
+class Studio is subclass of Place
 instance variables
   rehearsal:bool;
   recording:bool;

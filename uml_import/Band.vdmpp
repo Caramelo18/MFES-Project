@@ -1,5 +1,18 @@
-class Band
-instance variables
-  genre:seq of (char);
+class Band is subclass of Profile
+	types
+		public Genre = <Rock> | <Metal> | <Pop> | <HipHop> | <Jazz> | 
+									 <Electronic> | <Reggae> | <Classic> | <Alternative>;
+	instance variables
+	  genre:set of (Genre);
+	
+	operations
+	  public  addGenre : ()  ==> ?
+	  addGenre() ==
+	    is not yet specified;
+	
+	  public  deleteGenre : ()  ==> ?
+	  deleteGenre() ==
+	    is not yet specified;
+
 
 end Band

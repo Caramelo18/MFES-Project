@@ -1,5 +1,11 @@
-class Roadie
+class Roadie is subclass of Profile
 instance variables
   task:seq of (char);
+
+operations
+  public  setTask : ()  ==> ?
+  setTask() ==
+    is not yet specified;
+
 
 end Roadie

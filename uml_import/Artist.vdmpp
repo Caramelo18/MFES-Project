@@ -1,5 +1,19 @@
-class Artist
-instance variables
-  instrument:seq of (char);
+class Artist is subclass of Profile
+	types
+		public Instrument = <Guitar> | <Bass> | <Drums> | <Piano> | <Vocal> | <DJ> |
+												<Saxophone> | <Violin> | <Accordeon> | <Tuba> | <DoubleBass> |
+												<Viola> | <Cello> | <Xylophone> | <Bagpipes>;
+	instance variables
+	  instrument:set of (Instrument);
+	
+	operations
+	  public  addInstrument : ()  ==> ?
+	  addInstrument() ==
+	    is not yet specified;
+	
+	  public  deleteInstrument : ()  ==> ?
+	  deleteInstrument() ==
+	    is not yet specified;
+	
 
 end Artist

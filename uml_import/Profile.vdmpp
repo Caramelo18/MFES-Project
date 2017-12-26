@@ -2,4 +2,10 @@ class Profile
 instance variables
   Name:seq of (char);
 
+operations
+  public  changeName : ()  ==> ?
+  changeName() ==
+    is not yet specified;
+
+
 end Profile

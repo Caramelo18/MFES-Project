@@ -1,2 +1,2 @@
-class EventOrganizer
+class EventOrganizer is subclass of Profile
 end EventOrganizer

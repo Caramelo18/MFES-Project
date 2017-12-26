@@ -1,5 +1,19 @@
-class PlaceOffer
+class PlaceOffer is subclass of Offer
 instance variables
   rent_place:Place;
+
+operations
+  public  createPlaceOffer : ()  ==> ?
+  createPlaceOffer() ==
+    is not yet specified;
+
+  public  listPlaceOffer : ()  ==> ?
+  listPlaceOffer() ==
+    is not yet specified;
+
+  public  deletePlaceOffer : ()  ==> ?
+  deletePlaceOffer() ==
+    is not yet specified;
+
 
 end PlaceOffer

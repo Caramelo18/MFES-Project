@@ -1,182 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:default="http:///schemas/default/_KljnwOULEeez3pH5BLyyJQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/default/_KljnwOULEeez3pH5BLyyJQ/0 default.profile.uml#_KlogR-ULEeez3pH5BLyyJQ">
-  <uml:Model xmi:id="_Klbr8OULEeez3pH5BLyyJQ" name="jyve">
-    <eAnnotations xmi:id="_Klbr8eULEeez3pH5BLyyJQ" source="Objing">
-      <contents xmi:type="uml:Property" xmi:id="_Klbr8uULEeez3pH5BLyyJQ" name="exporterVersion">
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Klbr8-ULEeez3pH5BLyyJQ" value="3.0.0"/>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:default="http:///schemas/default/_pOv30OpfEeex4uWSmRPCPg/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/default/_pOv30OpfEeex4uWSmRPCPg/0 default.profile.uml#_pO1XZ-pfEeex4uWSmRPCPg">
+  <uml:Model xmi:id="_pOpxMOpfEeex4uWSmRPCPg" name="jyve">
+    <eAnnotations xmi:id="_pOpxMepfEeex4uWSmRPCPg" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_pOpxMupfEeex4uWSmRPCPg" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_pOpxM-pfEeex4uWSmRPCPg" value="3.0.0"/>
       </contents>
     </eAnnotations>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTAOULEeez3pH5BLyyJQ" name="Profile" isAbstract="true">
-      <ownedComment xmi:id="_KlcTAeULEeez3pH5BLyyJQ">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxNOpfEeex4uWSmRPCPg" name="Profile" isAbstract="true">
+      <ownedComment xmi:id="_pOpxNepfEeex4uWSmRPCPg">
         <body>&lt;Enter note text here></body>
       </ownedComment>
-      <ownedAttribute xmi:id="_KlcTAuULEeez3pH5BLyyJQ" name="Name" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxNupfEeex4uWSmRPCPg" name="Name" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxN-pfEeex4uWSmRPCPg" name="changeName" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTA-ULEeez3pH5BLyyJQ" name="Artist">
-      <generalization xmi:id="_KlcTBOULEeez3pH5BLyyJQ" general="_KlcTAOULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTBeULEeez3pH5BLyyJQ" name="instrument" visibility="public" isUnique="false">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxOOpfEeex4uWSmRPCPg" name="Artist">
+      <generalization xmi:id="_pOpxOepfEeex4uWSmRPCPg" general="_pOpxNOpfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxOupfEeex4uWSmRPCPg" name="instrument" visibility="public" type="_pOpxq-pfEeex4uWSmRPCPg" association="_pOpxP-pfEeex4uWSmRPCPg">
+        <ownedComment xmi:id="_pOpxO-pfEeex4uWSmRPCPg">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxPOpfEeex4uWSmRPCPg" value="*"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxPepfEeex4uWSmRPCPg" name="addInstrument" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxPupfEeex4uWSmRPCPg" name="deleteInstrument" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTBuULEeez3pH5BLyyJQ" name="Band">
-      <generalization xmi:id="_KlcTB-ULEeez3pH5BLyyJQ" general="_KlcTAOULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTCOULEeez3pH5BLyyJQ" name="genre" visibility="public" isUnique="false">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTCeULEeez3pH5BLyyJQ" name="Roadie">
-      <generalization xmi:id="_KlcTCuULEeez3pH5BLyyJQ" general="_KlcTAOULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTC-ULEeez3pH5BLyyJQ" name="task" visibility="public" isUnique="false">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTDOULEeez3pH5BLyyJQ" name="PlaceOwner">
-      <generalization xmi:id="_KlcTDeULEeez3pH5BLyyJQ" general="_KlcTAOULEeez3pH5BLyyJQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTDuULEeez3pH5BLyyJQ" name="Place" isAbstract="true">
-      <ownedAttribute xmi:id="_KlcTD-ULEeez3pH5BLyyJQ" name="placeOwner" visibility="public" type="_KlcTDOULEeez3pH5BLyyJQ" association="_KlcTEeULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTEOULEeez3pH5BLyyJQ" name="location" visibility="public" isUnique="false">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTEeULEeez3pH5BLyyJQ" memberEnd="_KlcTD-ULEeez3pH5BLyyJQ _KlcTEuULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTEuULEeez3pH5BLyyJQ" visibility="public" type="_KlcTDuULEeez3pH5BLyyJQ" association="_KlcTEeULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTE-ULEeez3pH5BLyyJQ" value="*"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxP-pfEeex4uWSmRPCPg" memberEnd="_pOpxOupfEeex4uWSmRPCPg _pOpxQOpfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxQOpfEeex4uWSmRPCPg" visibility="public" type="_pOpxOOpfEeex4uWSmRPCPg" association="_pOpxP-pfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxQepfEeex4uWSmRPCPg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOpxQupfEeex4uWSmRPCPg"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTFOULEeez3pH5BLyyJQ" name="Venue">
-      <generalization xmi:id="_KlcTFeULEeez3pH5BLyyJQ" general="_KlcTDuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTFuULEeez3pH5BLyyJQ" name="capacity" visibility="public" isUnique="false">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxQ-pfEeex4uWSmRPCPg" name="Band">
+      <generalization xmi:id="_pOpxROpfEeex4uWSmRPCPg" general="_pOpxNOpfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxRepfEeex4uWSmRPCPg" name="genre" visibility="public" type="_pOpxrOpfEeex4uWSmRPCPg" association="_pOpxSepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxRupfEeex4uWSmRPCPg" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxR-pfEeex4uWSmRPCPg" name="addGenre" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxSOpfEeex4uWSmRPCPg" name="deleteGenre" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxSepfEeex4uWSmRPCPg" memberEnd="_pOpxRepfEeex4uWSmRPCPg _pOpxSupfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxSupfEeex4uWSmRPCPg" visibility="public" type="_pOpxQ-pfEeex4uWSmRPCPg" association="_pOpxSepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxS-pfEeex4uWSmRPCPg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOpxTOpfEeex4uWSmRPCPg"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxTepfEeex4uWSmRPCPg" name="Roadie">
+      <generalization xmi:id="_pOpxTupfEeex4uWSmRPCPg" general="_pOpxNOpfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxT-pfEeex4uWSmRPCPg" name="task" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxUOpfEeex4uWSmRPCPg" name="setTask" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxUepfEeex4uWSmRPCPg" name="PlaceOwner">
+      <generalization xmi:id="_pOpxUupfEeex4uWSmRPCPg" general="_pOpxNOpfEeex4uWSmRPCPg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxU-pfEeex4uWSmRPCPg" name="Place" isAbstract="true">
+      <ownedAttribute xmi:id="_pOpxVOpfEeex4uWSmRPCPg" name="placeOwner" visibility="public" type="_pOpxUepfEeex4uWSmRPCPg" association="_pOpxVupfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxVepfEeex4uWSmRPCPg" name="location" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxVupfEeex4uWSmRPCPg" memberEnd="_pOpxVOpfEeex4uWSmRPCPg _pOpxV-pfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxV-pfEeex4uWSmRPCPg" visibility="public" type="_pOpxU-pfEeex4uWSmRPCPg" association="_pOpxVupfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxWOpfEeex4uWSmRPCPg" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxWepfEeex4uWSmRPCPg" name="Venue">
+      <generalization xmi:id="_pOpxWupfEeex4uWSmRPCPg" general="_pOpxU-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxW-pfEeex4uWSmRPCPg" name="capacity" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTF-ULEeez3pH5BLyyJQ" name="lighting" visibility="public" isUnique="false">
-        <ownedComment xmi:id="_KlcTGOULEeez3pH5BLyyJQ">
+      <ownedAttribute xmi:id="_pOpxXOpfEeex4uWSmRPCPg" name="lighting" visibility="public" isUnique="false">
+        <ownedComment xmi:id="_pOpxXepfEeex4uWSmRPCPg">
           <body>&lt;Enter note text here></body>
         </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTGeULEeez3pH5BLyyJQ" name="sound" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxXupfEeex4uWSmRPCPg" name="sound" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTGuULEeez3pH5BLyyJQ" name="stage_area" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxX-pfEeex4uWSmRPCPg" name="stage_area" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTG-ULEeez3pH5BLyyJQ" name="Studio">
-      <ownedComment xmi:id="_KlcTHOULEeez3pH5BLyyJQ">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxYOpfEeex4uWSmRPCPg" name="Studio">
+      <ownedComment xmi:id="_pOpxYepfEeex4uWSmRPCPg">
         <body>&lt;Enter note text here></body>
       </ownedComment>
-      <generalization xmi:id="_KlcTHeULEeez3pH5BLyyJQ" general="_KlcTDuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTHuULEeez3pH5BLyyJQ" name="rehearsal" visibility="public" isUnique="false">
+      <generalization xmi:id="_pOpxYupfEeex4uWSmRPCPg" general="_pOpxU-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxY-pfEeex4uWSmRPCPg" name="rehearsal" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTH-ULEeez3pH5BLyyJQ" name="recording" visibility="public" isUnique="false">
-        <ownedComment xmi:id="_KlcTIOULEeez3pH5BLyyJQ">
+      <ownedAttribute xmi:id="_pOpxZOpfEeex4uWSmRPCPg" name="recording" visibility="public" isUnique="false">
+        <ownedComment xmi:id="_pOpxZepfEeex4uWSmRPCPg">
           <body>&lt;Enter note text here></body>
         </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTIeULEeez3pH5BLyyJQ" name="area" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxZupfEeex4uWSmRPCPg" name="area" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTIuULEeez3pH5BLyyJQ" name="Offer" isAbstract="true"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTI-ULEeez3pH5BLyyJQ" name="BandRole">
-      <generalization xmi:id="_KlcTJOULEeez3pH5BLyyJQ" general="_KlcTIuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTJeULEeez3pH5BLyyJQ" name="band_role offer" visibility="public" type="_KlcTBuULEeez3pH5BLyyJQ" association="_KlcTJ-ULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTJuULEeez3pH5BLyyJQ" name="desired_role" visibility="public" isUnique="false">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxZ-pfEeex4uWSmRPCPg" name="Offer" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxaOpfEeex4uWSmRPCPg" name="BandRole">
+      <generalization xmi:id="_pOpxaepfEeex4uWSmRPCPg" general="_pOpxZ-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxaupfEeex4uWSmRPCPg" name="band_role_offer" visibility="public" type="_pOpxQ-pfEeex4uWSmRPCPg" association="_pOpxb-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxa-pfEeex4uWSmRPCPg" name="desired_role" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxbOpfEeex4uWSmRPCPg" name="createBandRoleOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxbepfEeex4uWSmRPCPg" name="listBandRoleOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxbupfEeex4uWSmRPCPg" name="deleteBandRoleOffer" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTJ-ULEeez3pH5BLyyJQ" memberEnd="_KlcTJeULEeez3pH5BLyyJQ _KlcTKOULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTKOULEeez3pH5BLyyJQ" visibility="public" type="_KlcTI-ULEeez3pH5BLyyJQ" association="_KlcTJ-ULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTKeULEeez3pH5BLyyJQ" value="*"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxb-pfEeex4uWSmRPCPg" memberEnd="_pOpxaupfEeex4uWSmRPCPg _pOpxcOpfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxcOpfEeex4uWSmRPCPg" visibility="public" type="_pOpxaOpfEeex4uWSmRPCPg" association="_pOpxb-pfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxcepfEeex4uWSmRPCPg" value="*"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTKuULEeez3pH5BLyyJQ" name="Gig">
-      <ownedAttribute xmi:id="_KlcTK-ULEeez3pH5BLyyJQ" name="performing_Bands" visibility="public" type="_KlcTBuULEeez3pH5BLyyJQ" association="_KlcTL-ULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTLOULEeez3pH5BLyyJQ" value="*"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxcupfEeex4uWSmRPCPg" name="Gig">
+      <ownedAttribute xmi:id="_pOpxc-pfEeex4uWSmRPCPg" name="performing_Bands" visibility="public" type="_pOpxQ-pfEeex4uWSmRPCPg" association="_pOpxeepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxdOpfEeex4uWSmRPCPg" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTLeULEeez3pH5BLyyJQ" name="venue" visibility="public" type="_KlcTFOULEeez3pH5BLyyJQ" association="_KlcTM-ULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTLuULEeez3pH5BLyyJQ" name="date" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxdepfEeex4uWSmRPCPg" name="venue" visibility="public" type="_pOpxWepfEeex4uWSmRPCPg" association="_pOpxfepfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxdupfEeex4uWSmRPCPg" name="date" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxd-pfEeex4uWSmRPCPg" name="addBand" visibility="public">
+        <ownedComment xmi:id="_pOpxeOpfEeex4uWSmRPCPg">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+      </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTL-ULEeez3pH5BLyyJQ" memberEnd="_KlcTK-ULEeez3pH5BLyyJQ _KlcTMOULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTMOULEeez3pH5BLyyJQ" visibility="public" type="_KlcTKuULEeez3pH5BLyyJQ" association="_KlcTL-ULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTMeULEeez3pH5BLyyJQ" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KlcTMuULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxeepfEeex4uWSmRPCPg" memberEnd="_pOpxc-pfEeex4uWSmRPCPg _pOpxeupfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxeupfEeex4uWSmRPCPg" visibility="public" type="_pOpxcupfEeex4uWSmRPCPg" association="_pOpxeepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxe-pfEeex4uWSmRPCPg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOpxfOpfEeex4uWSmRPCPg"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTM-ULEeez3pH5BLyyJQ" memberEnd="_KlcTLeULEeez3pH5BLyyJQ _KlcTNOULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTNOULEeez3pH5BLyyJQ" visibility="public" type="_KlcTKuULEeez3pH5BLyyJQ" association="_KlcTM-ULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTNeULEeez3pH5BLyyJQ" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KlcTNuULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxfepfEeex4uWSmRPCPg" memberEnd="_pOpxdepfEeex4uWSmRPCPg _pOpxfupfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxfupfEeex4uWSmRPCPg" visibility="public" type="_pOpxcupfEeex4uWSmRPCPg" association="_pOpxfepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxf-pfEeex4uWSmRPCPg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOpxgOpfEeex4uWSmRPCPg"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTN-ULEeez3pH5BLyyJQ" name="ArtistRole">
-      <ownedComment xmi:id="_KlcTOOULEeez3pH5BLyyJQ">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxgepfEeex4uWSmRPCPg" name="ArtistOffer">
+      <ownedComment xmi:id="_pOpxgupfEeex4uWSmRPCPg">
         <body>&lt;Enter note text here></body>
       </ownedComment>
-      <generalization xmi:id="_KlcTOeULEeez3pH5BLyyJQ" general="_KlcTIuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTOuULEeez3pH5BLyyJQ" name="artist" visibility="public" type="_KlcTA-ULEeez3pH5BLyyJQ" association="_KlcTO-ULEeez3pH5BLyyJQ"/>
+      <generalization xmi:id="_pOpxg-pfEeex4uWSmRPCPg" general="_pOpxZ-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxhOpfEeex4uWSmRPCPg" name="artist" visibility="public" type="_pOpxOOpfEeex4uWSmRPCPg" association="_pOpxiOpfEeex4uWSmRPCPg"/>
+      <ownedOperation xmi:id="_pOpxhepfEeex4uWSmRPCPg" name="createArtistOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxhupfEeex4uWSmRPCPg" name="listArtistOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxh-pfEeex4uWSmRPCPg" name="deleteArtistOffer" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTO-ULEeez3pH5BLyyJQ" memberEnd="_KlcTOuULEeez3pH5BLyyJQ _KlcTPOULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTPOULEeez3pH5BLyyJQ" visibility="public" type="_KlcTN-ULEeez3pH5BLyyJQ" association="_KlcTO-ULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxiOpfEeex4uWSmRPCPg" memberEnd="_pOpxhOpfEeex4uWSmRPCPg _pOpxiepfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxiepfEeex4uWSmRPCPg" visibility="public" type="_pOpxgepfEeex4uWSmRPCPg" association="_pOpxiOpfEeex4uWSmRPCPg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTPeULEeez3pH5BLyyJQ" name="PlaceOffer">
-      <generalization xmi:id="_KlcTPuULEeez3pH5BLyyJQ" general="_KlcTIuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTP-ULEeez3pH5BLyyJQ" name="rent_place" visibility="public" type="_KlcTDuULEeez3pH5BLyyJQ" association="_KlcTQOULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxiupfEeex4uWSmRPCPg" name="PlaceOffer">
+      <generalization xmi:id="_pOpxi-pfEeex4uWSmRPCPg" general="_pOpxZ-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxjOpfEeex4uWSmRPCPg" name="rent_place" visibility="public" type="_pOpxU-pfEeex4uWSmRPCPg" association="_pOpxkOpfEeex4uWSmRPCPg"/>
+      <ownedOperation xmi:id="_pOpxjepfEeex4uWSmRPCPg" name="createPlaceOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxjupfEeex4uWSmRPCPg" name="listPlaceOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxj-pfEeex4uWSmRPCPg" name="deletePlaceOffer" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTQOULEeez3pH5BLyyJQ" memberEnd="_KlcTP-ULEeez3pH5BLyyJQ _KlcTQeULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTQeULEeez3pH5BLyyJQ" visibility="public" type="_KlcTPeULEeez3pH5BLyyJQ" association="_KlcTQOULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxkOpfEeex4uWSmRPCPg" memberEnd="_pOpxjOpfEeex4uWSmRPCPg _pOpxkepfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxkepfEeex4uWSmRPCPg" visibility="public" type="_pOpxiupfEeex4uWSmRPCPg" association="_pOpxkOpfEeex4uWSmRPCPg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTQuULEeez3pH5BLyyJQ" name="RoadieOffer">
-      <generalization xmi:id="_KlcTQ-ULEeez3pH5BLyyJQ" general="_KlcTIuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTROULEeez3pH5BLyyJQ" name="band" visibility="public" type="_KlcTBuULEeez3pH5BLyyJQ" association="_KlcTRuULEeez3pH5BLyyJQ">
-        <ownedComment xmi:id="_KlcTReULEeez3pH5BLyyJQ">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxkupfEeex4uWSmRPCPg" name="RoadieOffer">
+      <generalization xmi:id="_pOpxk-pfEeex4uWSmRPCPg" general="_pOpxZ-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxlOpfEeex4uWSmRPCPg" name="band" visibility="public" type="_pOpxQ-pfEeex4uWSmRPCPg" association="_pOpxmepfEeex4uWSmRPCPg">
+        <ownedComment xmi:id="_pOpxlepfEeex4uWSmRPCPg">
           <body>&lt;Enter note text here></body>
         </ownedComment>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxlupfEeex4uWSmRPCPg" name="createRoadieOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxl-pfEeex4uWSmRPCPg" name="listRoadieOffer" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxmOpfEeex4uWSmRPCPg" name="deleteRoadieOffer" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTRuULEeez3pH5BLyyJQ" memberEnd="_KlcTROULEeez3pH5BLyyJQ _KlcTR-ULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTR-ULEeez3pH5BLyyJQ" visibility="public" type="_KlcTQuULEeez3pH5BLyyJQ" association="_KlcTRuULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTSOULEeez3pH5BLyyJQ" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KlcTSeULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxmepfEeex4uWSmRPCPg" memberEnd="_pOpxlOpfEeex4uWSmRPCPg _pOpxmupfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxmupfEeex4uWSmRPCPg" visibility="public" type="_pOpxkupfEeex4uWSmRPCPg" association="_pOpxmepfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxm-pfEeex4uWSmRPCPg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOpxnOpfEeex4uWSmRPCPg"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTSuULEeez3pH5BLyyJQ" name="EventOrganizer">
-      <generalization xmi:id="_KlcTS-ULEeez3pH5BLyyJQ" general="_KlcTAOULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxnepfEeex4uWSmRPCPg" name="EventOrganizer">
+      <generalization xmi:id="_pOpxnupfEeex4uWSmRPCPg" general="_pOpxNOpfEeex4uWSmRPCPg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KlcTTOULEeez3pH5BLyyJQ" name="HireBand">
-      <generalization xmi:id="_KlcTTeULEeez3pH5BLyyJQ" general="_KlcTIuULEeez3pH5BLyyJQ"/>
-      <ownedAttribute xmi:id="_KlcTTuULEeez3pH5BLyyJQ" name="eventOrganizer" visibility="public" type="_KlcTSuULEeez3pH5BLyyJQ" association="_KlcTUuULEeez3pH5BLyyJQ">
-        <ownedComment xmi:id="_KlcTT-ULEeez3pH5BLyyJQ">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOpxn-pfEeex4uWSmRPCPg" name="HireBand">
+      <generalization xmi:id="_pOpxoOpfEeex4uWSmRPCPg" general="_pOpxZ-pfEeex4uWSmRPCPg"/>
+      <ownedAttribute xmi:id="_pOpxoepfEeex4uWSmRPCPg" name="eventOrganizer" visibility="public" type="_pOpxnepfEeex4uWSmRPCPg" association="_pOpxqOpfEeex4uWSmRPCPg">
+        <ownedComment xmi:id="_pOpxoupfEeex4uWSmRPCPg">
           <body>&lt;Enter note text here></body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTUOULEeez3pH5BLyyJQ" name="location" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxo-pfEeex4uWSmRPCPg" name="location" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KlcTUeULEeez3pH5BLyyJQ" name="date" visibility="public" isUnique="false">
+      <ownedAttribute xmi:id="_pOpxpOpfEeex4uWSmRPCPg" name="date" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pOpxpepfEeex4uWSmRPCPg" name="createHireBand" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxpupfEeex4uWSmRPCPg" name="listHireBand" visibility="public"/>
+      <ownedOperation xmi:id="_pOpxp-pfEeex4uWSmRPCPg" name="deleteHireBand" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KlcTUuULEeez3pH5BLyyJQ" memberEnd="_KlcTTuULEeez3pH5BLyyJQ _KlcTU-ULEeez3pH5BLyyJQ">
-      <ownedEnd xmi:id="_KlcTU-ULEeez3pH5BLyyJQ" visibility="public" type="_KlcTTOULEeez3pH5BLyyJQ" association="_KlcTUuULEeez3pH5BLyyJQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KlcTVOULEeez3pH5BLyyJQ" value="*"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pOpxqOpfEeex4uWSmRPCPg" memberEnd="_pOpxoepfEeex4uWSmRPCPg _pOpxqepfEeex4uWSmRPCPg">
+      <ownedEnd xmi:id="_pOpxqepfEeex4uWSmRPCPg" visibility="public" type="_pOpxn-pfEeex4uWSmRPCPg" association="_pOpxqOpfEeex4uWSmRPCPg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOpxqupfEeex4uWSmRPCPg" value="*"/>
       </ownedEnd>
     </packagedElement>
-    <profileApplication xmi:id="_KmNIAOULEeez3pH5BLyyJQ">
-      <eAnnotations xmi:id="_KmNIAeULEeez3pH5BLyyJQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="default.profile.uml#_KlogR-ULEeez3pH5BLyyJQ"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_pOpxq-pfEeex4uWSmRPCPg" name="Instrument"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_pOpxrOpfEeex4uWSmRPCPg" name="Genre"/>
+    <profileApplication xmi:id="_pPTRcOpfEeex4uWSmRPCPg">
+      <eAnnotations xmi:id="_pPTRcepfEeex4uWSmRPCPg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.uml#_pO1XZ-pfEeex4uWSmRPCPg"/>
       </eAnnotations>
-      <appliedProfile href="default.profile.uml#_KlogQOULEeez3pH5BLyyJQ"/>
+      <appliedProfile href="default.profile.uml#_pO1XYOpfEeex4uWSmRPCPg"/>
     </profileApplication>
   </uml:Model>
-  <default:type xmi:id="_KmNvEOULEeez3pH5BLyyJQ" base_Element="_KlcTAOULEeez3pH5BLyyJQ"/>
-  <default:implementationClass xmi:id="_KmOWIOULEeez3pH5BLyyJQ" base_Element="_KlcTAOULEeez3pH5BLyyJQ"/>
-  <default:type xmi:id="_KmOWIeULEeez3pH5BLyyJQ" base_Element="_KlcTA-ULEeez3pH5BLyyJQ"/>
+  <default:type xmi:id="_pPUfkOpfEeex4uWSmRPCPg" base_Element="_pOpxNOpfEeex4uWSmRPCPg"/>
+  <default:implementationClass xmi:id="_pPUfkepfEeex4uWSmRPCPg" base_Element="_pOpxNOpfEeex4uWSmRPCPg"/>
+  <default:type xmi:id="_pPVGoOpfEeex4uWSmRPCPg" base_Element="_pOpxOOpfEeex4uWSmRPCPg"/>
 </xmi:XMI>

@@ -1,4 +1,4 @@
-class Venue
+class Venue is subclass of Place
 instance variables
   capacity:int;
   lighting:seq of (char);

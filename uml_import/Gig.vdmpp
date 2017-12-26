@@ -1,5 +1,5 @@
 class Gig
-	types 
+	types
 		public Date :: year : nat
 									 month: nat
 									 day  : nat;
@@ -7,5 +7,11 @@ class Gig
 	  performing_Bands:set of (Band);
 	  venue:Venue;
 	  date: Date;
+	
+	operations
+	  public  addBand : ()  ==> ?
+	  addBand() ==
+	    is not yet specified;
+	
 
 end Gig

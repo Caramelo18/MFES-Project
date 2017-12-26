@@ -1,5 +1,5 @@
-class HireBand
-	types 
+class HireBand is subclass of Offer
+	types
 		public Date :: year : nat
 									 month: nat
 									 day  : nat;
@@ -7,5 +7,19 @@ class HireBand
 	  eventOrganizer:EventOrganizer;
 	  location:seq of (char);
 	  date: Date;
+	
+	operations
+	  public  createHireBand : ()  ==> ?
+	  createHireBand() ==
+	    is not yet specified;
+	
+	  public  listHireBand : ()  ==> ?
+	  listHireBand() ==
+	    is not yet specified;
+	
+	  public  deleteHireBand : ()  ==> ?
+	  deleteHireBand() ==
+	    is not yet specified;
+
 
 end HireBand
