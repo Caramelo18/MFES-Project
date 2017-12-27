@@ -1,8 +1,39 @@
 class Venue is subclass of Place
-instance variables
-  capacity:int;
-  lighting:seq of (char);
-  sound:seq of (char);
-  stage_area:seq of (char);
-
+	instance variables
+	  capacity: int;
+	  lighting: String;
+	  sound: String;
+	  inv capacity > 0;
+	  
+	operations
+		public Venue : int * String * String ==> Venue
+		Venue(cap, lig, s) == (
+			capacity := cap;
+			lighting := lig;
+			sound := s;
+		)
+		pre cap > 0	
+		post capacity > 0;
+		
+		public changeCapcity : int ==> ()
+		changeCapcity(nc) == (
+			capacity := nc;
+		)
+		pre capacity <> nc
+		post capacity~ = nc;
+		
+		public changeLighting : String ==> ()
+		changeLighting(nl) == (
+			lighting := nl;
+		)
+		pre lighting <> nl
+		post lighting~ = nl;
+		
+		public changeSound : String ==> ()
+		changeSound(ns) == (
+			sound := ns;
+		)
+		pre sound <> ns
+		post sound~ = ns;
+		
 end Venue

@@ -1,25 +1,20 @@
 class HireBand is subclass of Offer
 	types
+		public String :: seq of (char);
 		public Date :: year : nat
 									 month: nat
 									 day  : nat;
 	instance variables
-	  eventOrganizer:EventOrganizer;
-	  location:seq of (char);
+	  eventOrganizer: EventOrganizer;
+	  location: String;
 	  date: Date;
 	
 	operations
-	  public  createHireBand : ()  ==> ?
-	  createHireBand() ==
-	    is not yet specified;
-	
-	  public  listHireBand : ()  ==> ?
-	  listHireBand() ==
-	    is not yet specified;
-	
-	  public  deleteHireBand : ()  ==> ?
-	  deleteHireBand() ==
-	    is not yet specified;
-
+		public HireBand : EventOrganizer * String * Date ==> HireBand
+		HireBand(e, l, d) == (
+			eventOrganizer := e;
+			location := l;
+			date := d;
+		);
 
 end HireBand

@@ -9,10 +9,18 @@ class Gig
 	  date: Date;
 	
 	operations
-
-	  public  addBand : ()  ==> ()
-	  addBand() ==
-	    is not yet specified;
-	
-
+		public Gig : Venue * Date ==> Gig
+		Gig(v, d) == (
+			performing_Bands:= {};
+			venue:= v;
+			date:= d;
+		);
+		
+	  public  addBand : Band  ==> ()
+	  addBand(b) == (
+	  	performing_Bands := performing_Bands union {b};
+	  )
+	  pre b not in set performing_Bands
+	  post b in set performing_Bands~;
+	    
 end Gig

@@ -1,7 +1,30 @@
 class Studio is subclass of Place
-instance variables
-  rehearsal:bool;
-  recording:bool;
-  area:seq of (char);
+	instance variables
+	  rehearsal: bool;
+	  recording: bool;
+	  inv rehearsal <> recording;
+	  
+	operations
+		public Studio : bool * bool  ==> Studio
+		Studio(reh, rec) == (
+			rehearsal := reh;
+			recording := rec;
+		)
+		pre reh <> rec
+		post rehearsal <> recording;
+		
+		public changeRehearsal : bool ==> ()
+		changeRehearsal(nr) == (
+			rehearsal := nr;
+		)
+		pre rehearsal <> nr
+		post rehearsal~ = nr;
+		
+		public changeRecording : bool ==> ()
+		changeRecording(nr) == (
+			recording := nr;
+		)
+		pre recording <> nr
+		post recording~ = nr;
 
 end Studio

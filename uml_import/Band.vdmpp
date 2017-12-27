@@ -6,20 +6,22 @@ class Band is subclass of Profile
 	  genre:set of (Genre);
 	
 	operations
-		Band: () ==> Band
+		public Band: () ==> Band
 		Band() ==
 			genre:= {};
 	
-	  public  addGenre : (Genre)  ==> ()
-	  addGenre(g) ==
-	  	genre:= genre union {g}
+	  public  addGenre : Genre  ==> ()
+	  addGenre(g) == (
+	  	genre:= genre union {g};
+	  )
 	  pre g not in set genre
-	  post g in set genre;
+	  post g in set genre~;
 	
-	  public  deleteGenre : (Genre)  ==> ()
-	  deleteGenre(g) ==
-	  	genre:= genre \ {g}
+	  public  deleteGenre : Genre  ==> ()
+	  deleteGenre(g) == (
+	  	genre:= genre \ {g};
+	  )
 	  pre g in set genre
-	  post g not in set genre;
+	  post g not in set genre~;
 
 end Band

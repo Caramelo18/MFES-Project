@@ -1,11 +1,21 @@
 class Profile
-instance variables
-  Name:seq of (char);
-
-operations
-  public  changeName : ()  ==> ?
-  changeName() ==
-    is not yet specified;
-
+	types
+		public String :: seq of (char);
+		
+	instance variables
+	  name: String;
+	
+	operations
+		public Profile : String ==> Profile
+		Profile(n) == (
+			name := n;
+		);
+	
+	  public  changeName : String  ==> ()
+	  changeName(nn) == (
+	  	name := nn;
+	  )
+	  pre name <> nn
+	  post name~ = nn;
 
 end Profile

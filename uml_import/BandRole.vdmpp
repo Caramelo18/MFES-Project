@@ -1,20 +1,16 @@
 class BandRole is subclass of Offer
+types
+	public String :: seq of (char);
+
 instance variables
-  band_role_offer:Band;
-  desired_role:seq of (char);
+  band_role_offer: Band;
+  desired_role: String;
 
 operations
-  public  createBandRoleOffer : ()  ==> ?
-  createBandRoleOffer() ==
-    is not yet specified;
-
-  public  listBandRoleOffer : ()  ==> ?
-  listBandRoleOffer() ==
-    is not yet specified;
-
-  public  deleteBandRoleOffer : ()  ==> ?
-  deleteBandRoleOffer() ==
-    is not yet specified;
-
+  public  BandRole : Band * String ==> BandRole
+  BandRole(b, d) == (
+  	band_role_offer := b;
+  	desired_role := d;
+  );
 
 end BandRole

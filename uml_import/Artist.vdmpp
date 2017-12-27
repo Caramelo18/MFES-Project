@@ -7,20 +7,22 @@ class Artist is subclass of Profile
 	  instrument:set of (Instrument);
 	
 	operations
-		Artist : () ==> Artist
+		public Artist : () ==> Artist
 		Artist() ==
 			instrument := {};
 	
-		public addInstrument : (Instrument) ==> ()
-	  addInstrument(i) ==
-	    instrument:= instrument union {i}
+		public addInstrument : Instrument ==> ()
+	  addInstrument(i) == (
+	    instrument:= instrument union {i};
+	  )
 	  pre i not in set instrument
-	  post i in set instrument;
+	  post i in set instrument~;
 	
-	  public  deleteInstrument : (Instrument)  ==> ()
-	  deleteInstrument(i) ==
-	  instrument := instrument \ {i}
+	  public  deleteInstrument : Instrument  ==> ()
+	  deleteInstrument(i) == (
+	  	instrument := instrument \ {i};
+	  )
 	  pre i in set instrument
-	  post i not in set instrument;
+	  post i not in set instrument~;
 	
 end Artist

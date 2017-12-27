@@ -1,19 +1,11 @@
 class RoadieOffer is subclass of Offer
-instance variables
-  band:Band;
-
-operations
-  public  createRoadieOffer : ()  ==> ?
-  createRoadieOffer() ==
-    is not yet specified;
-
-  public  listRoadieOffer : ()  ==> ?
-  listRoadieOffer() ==
-    is not yet specified;
-
-  public  deleteRoadieOffer : ()  ==> ?
-  deleteRoadieOffer() ==
-    is not yet specified;
-
-
+	instance variables
+	  band:Band;
+	
+	operations
+	  public  RoadieOffer : Band  ==> RoadieOffer
+	  RoadieOffer(b) == (
+	  	band := b;
+	  );
+	    
 end RoadieOffer

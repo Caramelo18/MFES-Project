@@ -1,11 +1,19 @@
 class Roadie is subclass of Profile
-instance variables
-  task:seq of (char);
-
-operations
-  public  setTask : ()  ==> ?
-  setTask() ==
-    is not yet specified;
-
+	instance variables
+	  task: String;
+	
+	operations
+		public Roadie : String ==> Roadie
+		Roadie(t) == (
+			task := t;
+		);
+		
+	  public  setNewTask : String  ==> ()
+	  setNewTask(nt) ==(
+	  	task := nt;
+	  )
+	  pre task <> nt
+	  post task~ = nt;
+	
 
 end Roadie
