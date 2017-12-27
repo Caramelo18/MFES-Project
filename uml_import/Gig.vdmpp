@@ -4,12 +4,13 @@ class Gig
 									 month: nat
 									 day  : nat;
 	instance variables
-	  performing_Bands:set of (Band);
-	  venue:Venue;
+	  performing_Bands: set of (Band);
+	  venue: Venue;
 	  date: Date;
 	
 	operations
-	  public  addBand : ()  ==> ?
+
+	  public  addBand : ()  ==> ()
 	  addBand() ==
 	    is not yet specified;
 	
