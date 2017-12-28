@@ -1,27 +1,27 @@
 class Band is subclass of Profile		
 	instance variables
-	  genre:set of (Utils`Genre);
+	  genre:set of (Utilitys`Genre);
 	  gigs: set of Gig;
 	  
 	  inv not exists g1, g2 in set gigs &
 	  		g1 <> g2 and g1.getDate() = g2.getDate();
 	
 	operations
-		public Band: Utils`String ==> Band
+		public Band: Utilitys`String ==> Band
 		Band(n) == (
 			name:= n;
 			genre:= {};
 			gigs:= {};
 			return self;
 		);
-	  public  addGenre : Utils`Genre  ==> ()
+	  public  addGenre : Utilitys`Genre  ==> ()
 	  addGenre(g) == (
 	  	genre:= genre union {g};
 	  )
 	  pre g not in set genre
 	  post g in set genre~;
 	
-	  public  deleteGenre : Utils`Genre  ==> ()
+	  public  deleteGenre : Utilitys`Genre  ==> ()
 	  deleteGenre(g) == (
 	  	genre:= genre \ {g};
 	  )

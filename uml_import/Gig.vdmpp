@@ -2,10 +2,10 @@ class Gig
 	instance variables
 	  performing_Bands: set of (Band);
 	  venue: Venue;
-	  date: Utils`Date;
+	  date: Utilitys`Date;
 	
 	operations
-		public Gig : Venue * Utils`Date ==> Gig
+		public Gig : Venue * Utilitys`Date ==> Gig
 		Gig(v, d) == (
 			performing_Bands:= {};
 			venue:= v;
@@ -20,7 +20,7 @@ class Gig
 	  pre b not in set performing_Bands
 	  post b in set performing_Bands~;
 	
-		pure public getDate: () ==> Utils`Date
+		pure public getDate: () ==> Utilitys`Date
 		getDate() == (
 			return date;
 		);

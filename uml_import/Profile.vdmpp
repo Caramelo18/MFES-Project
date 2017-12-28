@@ -1,9 +1,9 @@
 class Profile
 	instance variables
-	  protected name: Utils`String;
+	  protected name: Utilitys`String;
 	
 	operations	
-	  public  changeName : Utils`String  ==> ()
+	  public  changeName : Utilitys`String  ==> ()
 	  changeName(nn) == (
 	  	name := nn;
 	  )

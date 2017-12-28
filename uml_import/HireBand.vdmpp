@@ -2,11 +2,11 @@ class HireBand is subclass of Offer
 	types
 	instance variables
 	  eventOrganizer: EventOrganizer;
-	  location: Utils`String;
-	  date: Utils`Date;
+	  location: Utilitys`String;
+	  date: Utilitys`Date;
 	
 	operations
-		public HireBand : EventOrganizer * Utils`String * Utils`Date ==> HireBand
+		public HireBand : EventOrganizer * Utilitys`String * Utilitys`Date ==> HireBand
 		HireBand(e, l, d) == (
 			eventOrganizer := e;
 			location := l;

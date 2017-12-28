@@ -1,12 +1,12 @@
 class Place
 	instance variables
 	  placeOwner: PlaceOwner;
-	  location: Utils`String;
+	  location: Utilitys`String;
 	  stage_area: nat1;
 	  inv stage_area > 0;
 	  
 	operations
-	  public Place: PlaceOwner * Utils`String * nat1 ==> Place 
+	  public Place: PlaceOwner * Utilitys`String * nat1 ==> Place 
 	  Place(po, l, sa) == (
 	  	placeOwner := po;
 	  	location := l;
