@@ -1,17 +1,21 @@
 class BandRole is subclass of Offer
-types
-	public String :: seq of (char);
-
-instance variables
-  band_role_offer: Band;
-  desired_role: String;
-
-operations
-  public  BandRole : Band * String ==> BandRole
-  BandRole(b, d) == (
-  	band_role_offer := b;
-  	desired_role := d;
-  	return self;
-  );
+	instance variables
+	  band_role_offer: Band;
+	  desired_role: Utils`Instrument;
+	
+	operations
+	  public  BandRole : Band * Utils`Instrument ==> BandRole
+	  BandRole(b, d) == (
+	  	band_role_offer := b;
+	  	desired_role := d;
+	  	return self;
+	  );
+	  
+	  pure public getRole: () ==> Utils`Instrument
+	  getRole() == ( 
+	  	return desired_role;
+	  )
+	  post RESULT = desired_role
+	  		and desired_role = desired_role~;
 
 end BandRole

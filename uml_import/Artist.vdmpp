@@ -1,27 +1,32 @@
 class Artist is subclass of Profile		
 	instance variables
-	  instrument:set of (Utils`Instrument);
+	  instruments:set of (Utils`Instrument);
 	
 	operations
 		public Artist : Utils`String ==> Artist
 		Artist(n) == (
 			name := n;
-			instrument := {};
+			instruments := {};
 			return self;
 		);
 	
 		public addInstrument : Utils`Instrument ==> ()
 	  addInstrument(i) == (
-	    instrument:= instrument union {i};
+	    instruments:= instruments union {i};
 	  )
-	  pre i not in set instrument
-	  post i in set instrument~;
+	  pre i not in set instruments
+	  post i in set instruments~;
 	
 	  public  deleteInstrument : Utils`Instrument  ==> ()
 	  deleteInstrument(i) == (
-	  	instrument := instrument \ {i};
+	  	instruments := instruments \ {i};
 	  )
-	  pre i in set instrument
-	  post i not in set instrument~;
+	  pre i in set instruments
+	  post i not in set instruments~;
+	  
+	  pure public playsInstrument: Utils`Instrument ==> bool
+	  playsInstrument(i) == (
+	  	return i in set instruments;
+	  );
 	
 end Artist

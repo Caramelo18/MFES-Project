@@ -8,5 +8,10 @@ operations
   	artist := a;
   	return self;
   );
+  
+  pure public getArtist: () ==> Artist
+  getArtist() == (
+  	return artist;
+  );
 
 end ArtistOffer
