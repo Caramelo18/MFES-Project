@@ -1,12 +1,21 @@
 class RoadieOffer is subclass of Offer
 	instance variables
-	  band:Band;
+	  band: Band;
+	  task: Utils`Task;
 	
 	operations
-	  public  RoadieOffer : Band  ==> RoadieOffer
-	  RoadieOffer(b) == (
+	  public  RoadieOffer : Band * Utils`Task ==> RoadieOffer
+	  RoadieOffer(b, t) == (
 	  	band := b;
+	  	task := t;
 	  	return self;
 	  );
+	  
+	  public getTask: () ==> Utils`Task
+	  getTask() == (
+	  	return task;
+	  )
+	  post RESULT = task
+	  		and task = task~;
 	    
 end RoadieOffer

@@ -74,14 +74,14 @@ class AdvertisingBoard
 		)
 		post roadieOffers = roadieOffers~;
 		
-		public listRoadieOffers: Utils`String ==> set of RoadieOffer
+		public listRoadieOffers: Utils`Task ==> set of RoadieOffer
 		listRoadieOffers(task) == (
 			dcl list : set of RoadieOffer := {};
 			
---			for all roadieOffer in set roadieOffers do (
---				if bandRoleOffer.getRole() = task then
---					list := list union {roadieOffer}
---			);
+			for all roadieOffer in set roadieOffers do (
+				if roadieOffer.getTask() = task then
+					list := list union {roadieOffer}
+			);
 			
 			return list;
 		)
