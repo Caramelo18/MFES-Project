@@ -1,17 +1,9 @@
 class Profile
-	types
-		public String :: seq of (char);
-		
 	instance variables
-	  name: String;
+	  protected name: Utils`String;
 	
-	operations
-		public Profile : String ==> Profile
-		Profile(n) == (
-			name := n;
-		);
-	
-	  public  changeName : String  ==> ()
+	operations	
+	  public  changeName : Utils`String  ==> ()
 	  changeName(nn) == (
 	  	name := nn;
 	  )

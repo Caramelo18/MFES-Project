@@ -1,23 +1,27 @@
-class Band is subclass of Profile
-	types
-		public Genre = <Rock> | <Metal> | <Pop> | <HipHop> | <Jazz> | 
-									 <Electronic> | <Reggae> | <Classic> | <Alternative>;
+class Band is subclass of Profile		
 	instance variables
-	  genre:set of (Genre);
+	  genre:set of (Utils`Genre);
+	  gigs: set of Gig;
+	  
+	  inv not exists g1, g2 in set gigs &
+	  		g1 <> g2 and g1.getDate() = g2.getDate();
 	
 	operations
-		public Band: () ==> Band
-		Band() ==
+		public Band: Utils`String ==> Band
+		Band(n) == (
+			name:= n;
 			genre:= {};
-	
-	  public  addGenre : Genre  ==> ()
+			gigs:= {};
+			return self;
+		);
+	  public  addGenre : Utils`Genre  ==> ()
 	  addGenre(g) == (
 	  	genre:= genre union {g};
 	  )
 	  pre g not in set genre
 	  post g in set genre~;
 	
-	  public  deleteGenre : Genre  ==> ()
+	  public  deleteGenre : Utils`Genre  ==> ()
 	  deleteGenre(g) == (
 	  	genre:= genre \ {g};
 	  )

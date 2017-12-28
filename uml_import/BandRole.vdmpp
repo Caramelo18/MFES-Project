@@ -11,6 +11,7 @@ operations
   BandRole(b, d) == (
   	band_role_offer := b;
   	desired_role := d;
+  	return self;
   );
 
 end BandRole

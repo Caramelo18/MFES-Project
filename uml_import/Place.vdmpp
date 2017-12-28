@@ -1,22 +1,20 @@
 class Place
-	types 
-		public String :: seq of (char);
-	
 	instance variables
 	  placeOwner: PlaceOwner;
-	  location: String;
-	  stage_area: int;
+	  location: Utils`String;
+	  stage_area: nat1;
 	  inv stage_area > 0;
 	  
 	operations
-	  public Place: PlaceOwner * String * int ==> Place 
+	  public Place: PlaceOwner * Utils`String * nat1 ==> Place 
 	  Place(po, l, sa) == (
 	  	placeOwner := po;
 	  	location := l;
 	  	stage_area := sa;
+	  	return self;
 	  );
 	  
-	  public changeStage_area : int ==> ()
+	  public changeStage_area : nat1 ==> ()
 		changeStage_area(nsa) == (
 			stage_area := nsa;
 		)

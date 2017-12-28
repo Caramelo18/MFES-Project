@@ -6,6 +6,7 @@ operations
   public  ArtistOffer : Artist  ==> ArtistOffer
   ArtistOffer(a) == (
   	artist := a;
+  	return self;
   );
 
 end ArtistOffer

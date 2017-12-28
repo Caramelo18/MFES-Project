@@ -1,19 +1,16 @@
 class Gig
-	types
-		public Date :: year : nat
-									 month: nat
-									 day  : nat;
 	instance variables
 	  performing_Bands: set of (Band);
 	  venue: Venue;
-	  date: Date;
+	  date: Utils`Date;
 	
 	operations
-		public Gig : Venue * Date ==> Gig
+		public Gig : Venue * Utils`Date ==> Gig
 		Gig(v, d) == (
 			performing_Bands:= {};
 			venue:= v;
 			date:= d;
+			return self;
 		);
 		
 	  public  addBand : Band  ==> ()
@@ -22,5 +19,10 @@ class Gig
 	  )
 	  pre b not in set performing_Bands
 	  post b in set performing_Bands~;
-	    
+	
+		pure public getDate: () ==> Utils`Date
+		getDate() == (
+			return date;
+		);
+		
 end Gig

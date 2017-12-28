@@ -9,6 +9,7 @@ class Studio is subclass of Place
 		Studio(reh, rec) == (
 			rehearsal := reh;
 			recording := rec;
+			return self;
 		)
 		pre reh <> rec
 		post rehearsal <> recording;

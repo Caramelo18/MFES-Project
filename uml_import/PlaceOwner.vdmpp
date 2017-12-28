@@ -1,2 +1,10 @@
 class PlaceOwner is subclass of Profile
+
+	operations
+		public PlaceOwner: Utils`String ==> PlaceOwner
+		PlaceOwner(n) == (
+			name:= n;
+			return self;
+		);
+		
 end PlaceOwner

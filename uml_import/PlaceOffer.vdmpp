@@ -6,6 +6,7 @@ class PlaceOffer is subclass of Offer
 	  public  PlaceOffer : Place  ==> PlaceOffer
 	  PlaceOffer(rp) == (
 	  	rent_place := rp;
+	  	return self;
 	  );
 
 end PlaceOffer

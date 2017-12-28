@@ -1,24 +1,23 @@
-class Artist is subclass of Profile
-	types
-		public Instrument = <Guitar> | <Bass> | <Drums> | <Piano> | <Vocal> | <DJ> |
-												<Saxophone> | <Violin> | <Accordeon> | <Tuba> | <DoubleBass> |
-												<Viola> | <Cello> | <Xylophone> | <Bagpipes>;
+class Artist is subclass of Profile		
 	instance variables
-	  instrument:set of (Instrument);
+	  instrument:set of (Utils`Instrument);
 	
 	operations
-		public Artist : () ==> Artist
-		Artist() ==
+		public Artist : Utils`String ==> Artist
+		Artist(n) == (
+			name := n;
 			instrument := {};
+			return self;
+		);
 	
-		public addInstrument : Instrument ==> ()
+		public addInstrument : Utils`Instrument ==> ()
 	  addInstrument(i) == (
 	    instrument:= instrument union {i};
 	  )
 	  pre i not in set instrument
 	  post i in set instrument~;
 	
-	  public  deleteInstrument : Instrument  ==> ()
+	  public  deleteInstrument : Utils`Instrument  ==> ()
 	  deleteInstrument(i) == (
 	  	instrument := instrument \ {i};
 	  )
