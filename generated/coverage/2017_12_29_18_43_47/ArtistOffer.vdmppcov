@@ -1,0 +1,17 @@
+class ArtistOffer is subclass of Offer
+instance variables
+  artist: Artist;
+
+operations
+  public  ArtistOffer : Artist  ==> ArtistOffer
+  ArtistOffer(a) == (
+  	artist := a;
+  	return self;
+  );
+  
+  pure public getArtist: () ==> Artist
+  getArtist() == (
+  	return artist;
+  );
+
+end ArtistOffer

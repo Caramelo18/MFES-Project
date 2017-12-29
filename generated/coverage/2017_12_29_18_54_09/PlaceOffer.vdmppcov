@@ -1,0 +1,19 @@
+class PlaceOffer is subclass of Offer
+	instance variables
+	  rent_place: Place;
+	
+	operations
+	  public  PlaceOffer : Place  ==> PlaceOffer
+	  PlaceOffer(rp) == (
+	  	rent_place := rp;
+	  	return self;
+	  );
+	  
+	  public getPlace: () ==> Place
+	  getPlace() == (
+	  	return rent_place
+	  )
+	  post rent_place = rent_place~
+	  		and RESULT = rent_place;
+
+end PlaceOffer
