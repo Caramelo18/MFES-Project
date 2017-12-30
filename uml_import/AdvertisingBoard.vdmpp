@@ -95,15 +95,14 @@ class AdvertisingBoard
 		post placeOffers = placeOffers~;
 		
 		public listPlaceOffers: bool * bool * bool ==> set of PlaceOffer
-		listPlaceOffers(studio, rehearsal, recording) == (
-			dcl list: set of PlaceOffer:= {};
+		listPlaceOffers(venue, rehearsal, recording) == (
+			dcl list: set of PlaceOffer:= {}, pq: Venue;
 			
 			for all placeOffer in set placeOffers do (
-				if studio then(
-					if isofclass(Studio, placeOffer) then
-						list := list union {placeOffer};
+				if venue and isofclass(Venue, placeOffer.getPlace()) then(
+					list := list union {placeOffer};
 				)		
-				else (
+				else if not venue and isofclass(Studio, placeOffer.getPlace()) then (
 					dcl place: Studio := placeOffer.getPlace();
 					if place.isRehearsal() and rehearsal then
 						list := list union {placeOffer}
@@ -113,8 +112,8 @@ class AdvertisingBoard
 			);
 			return list;
 		)
-		pre (studio and (not rehearsal and not recording)) 
-			or (not studio and (rehearsal <> recording))
+		pre (venue and (not rehearsal and not recording)) 
+			or (not venue and (rehearsal <> recording))
 		post placeOffers = placeOffers~;
 		
 		
@@ -138,6 +137,20 @@ class AdvertisingBoard
 		)
 		pre br not in set bandRoleOffers
 		post br in set bandRoleOffers;
+		
+		public addRoadieOffer: RoadieOffer ==> ()
+		addRoadieOffer(oo) == (
+			roadieOffers := roadieOffers union {oo};
+		)
+		pre oo not in set roadieOffers
+		post oo in set roadieOffers;
+		
+		public addPlaceOffer: PlaceOffer ==> ()
+		addPlaceOffer(po) == (
+			placeOffers := placeOffers union {po};
+		)
+		pre po not in set placeOffers
+		post po in set placeOffers;
 		
 		public addHireBandOffer: HireBand ==> ()
 		addHireBandOffer(hb) == (

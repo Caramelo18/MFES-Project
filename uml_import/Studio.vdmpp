@@ -5,8 +5,11 @@ class Studio is subclass of Place
 	  inv rehearsal <> recording;
 	  
 	operations
-		public Studio : bool * bool  ==> Studio
-		Studio(reh, rec) == (
+		public Studio : PlaceOwner * seq of char * nat1 * bool * bool  ==> Studio
+		Studio(po, loc, sa, reh, rec) == (
+			placeOwner := po;
+			location := loc;
+			stageArea := sa;
 			rehearsal := reh;
 			recording := rec;
 			return self;

@@ -165,6 +165,52 @@ class JyveTest
     	assertEqual({hb1, hb2}, ab.listHireBandOffers());
     );
     
+    private testRoadieOffer: () ==> ()
+    testRoadieOffer() == (
+    	dcl b: Band, ro1: RoadieOffer, ro2: RoadieOffer;
+    	
+    	b := new Band("Band 1");
+    	
+    	ro1 := new RoadieOffer(b, <Engineer>);
+    	ro2 := new RoadieOffer(b, <InstrumentTech>);
+    	
+    	assertEqual({}, ab.listRoadieOffers());
+    	
+    	ab.addRoadieOffer(ro1);
+    	ab.addRoadieOffer(ro2);
+    	assertEqual({ro1, ro2}, ab.listRoadieOffers());
+    	
+    	assertEqual({ro1}, ab.listRoadieOffers(<Engineer>));
+    );
+    
+    private testPlaceOffer: () ==> ()
+    testPlaceOffer() == (
+    	dcl p1: Venue, p2: Studio, p3: Studio, plo: PlaceOwner, po1: PlaceOffer, po2: PlaceOffer, po3: PlaceOffer;
+    	
+    	plo := new PlaceOwner("Place Owner");
+    	assertEqual("Place Owner", plo.getName());
+    	
+    	p1 := new Venue(plo, "Feira Portugal", 75, 2000, "Ok", "Ok");
+    	p2 := new Studio(plo, "Porto Portugal", 25, false, true);
+    	p3 := new Studio(plo, "Porto Portugal", 25, true, false);
+    	
+    	po1 := new PlaceOffer(p1);
+    	po2 := new PlaceOffer(p2);
+    	po3 := new PlaceOffer(p3);
+    	
+    	
+    	assertEqual({}, ab.listPlaceOffers());
+    	ab.addPlaceOffer(po1);
+    	ab.addPlaceOffer(po2);
+    	ab.addPlaceOffer(po3);
+    	assertEqual({po1, po2, po3}, ab.listPlaceOffers());
+    	
+    	assertEqual({po1}, ab.listPlaceOffers(true, false, false));
+    	assertEqual({po2}, ab.listPlaceOffers(false, false, true));
+    	assertEqual({po3}, ab.listPlaceOffers(false, true, false));
+    	
+    );
+    
     public static main: () ==> ()
     main() ==
     (
@@ -174,6 +220,8 @@ class JyveTest
     	new JyveTest().testBandRole();
     	new JyveTest().testGig();
     	new JyveTest().testHireBand();
+    	new JyveTest().testRoadieOffer();
+    	new JyveTest().testPlaceOffer();
     );
 	functions
 	-- TODO Define functiones here
