@@ -29,7 +29,7 @@ class Gig
 	  	return complete;
 	  )
 	  pre b not in set performingBands
-	  post b in set performingBands~
+	  post b in set performingBands
 	  		and RESULT;
 	
 		pure public getDate: () ==> Utilitys`Date

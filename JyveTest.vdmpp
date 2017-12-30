@@ -78,11 +78,102 @@ class JyveTest
 			
     );
     
+    private testBand: () ==> ()
+    testBand() == (
+    	dcl b1: Band;
+    	b1 := new Band("Band 1");
+    	
+    	assertEqual("Band 1", b1.getName());
+    	assertEqual({}, b1.getGenres());
+    	
+    	b1.addGenre(<Rock>);
+    	assertEqual({<Rock>}, b1.getGenres());
+    	b1.addGenre(<Metal>);
+    	assertEqual({<Rock>, <Metal>}, b1.getGenres());
+    	b1.deleteGenre(<Rock>);
+    	assertEqual({<Metal>}, b1.getGenres());    	
+    );
+    
+    private testBandRole: () ==> ()
+    testBandRole() == (
+    	dcl b1: Band, b2: Band, br1: BandRole, br2: BandRole, br3: BandRole;
+    	b1 := new Band("Band 1");
+    	b2 := new Band("Band 2");
+    	
+    	br1 := new BandRole(b1, <Saxophone>);
+    	br2 := new BandRole(b2, <Drums>);
+    	br3 := new BandRole(b1, <DJ>);
+    	
+    	assertEqual({}, ab.listBandRoleOffers());
+    	
+    	assertEqual({}, ab.listBandRoleOffers(<DJ>));
+    	
+    	ab.addBandRoleOffer(br1);
+    	ab.addBandRoleOffer(br2);
+    	ab.addBandRoleOffer(br3);
+    	
+    	assertEqual({br1, br2, br3}, ab.listBandRoleOffers());
+    	assertEqual({br2}, ab.listBandRoleOffers(<Drums>));
+    	assertEqual({}, ab.listBandRoleOffers(<Xylophone>));
+    );
+    
+    private testGig: () ==> ()
+    testGig() == (
+    	dcl b1: Band, b2: Band, po: PlaceOwner, v: Venue, d1: Utilitys`Date, d2: Utilitys`Date, g1: Gig, g2: Gig, result: bool;
+    	b1 := new Band("Band 1");
+    	b2 := new Band("Band 2");
+    	
+    	po := new PlaceOwner("Place Owner");
+    	
+    	v := new Venue(po, "Montijo Portugal", 100, 15000, "Great", "Great");
+    	
+    	d1 := mk_Utilitys`Date(2017, 12, 31);
+    	d2 := mk_Utilitys`Date(2018, 01, 01);
+    	
+    	g1 := new Gig(v, d1);
+    	g2 := new Gig(v, d2);
+    	
+    	assertEqual({}, b1.getGigs());
+    	assertEqual({}, g1.getBands());
+    	
+    	result := g1.addBand(b1);
+    	assertEqual({g1}, b1.getGigs());
+    	assertEqual({b1}, g1.getBands());
+    	
+    	result := g2.addBand(b1);
+    	result := g2.addBand(b2);
+    	assertEqual({g1, g2}, b1.getGigs());
+    	assertEqual({b1, b2}, g2.getBands());
+    	
+    );
+    
+    private testHireBand: () ==> ()
+    testHireBand() == (
+    	dcl eo: EventOrganizer, hb1: HireBand, hb2: HireBand;
+    	
+    	eo := new EventOrganizer("Event Organizer");
+    	
+    	assertEqual("Event Organizer", eo.getName());
+    	
+    	hb1 := new HireBand(eo, "Montijo Portugal", mk_Utilitys`Date(2017, 12, 31));
+    	hb2 := new HireBand(eo, "Porto Portugal", mk_Utilitys`Date(2018, 03, 15));
+    	
+    	assertEqual({}, ab.listHireBandOffers());
+    	
+    	ab.addHireBandOffer(hb1);
+    	ab.addHireBandOffer(hb2);
+    	assertEqual({hb1, hb2}, ab.listHireBandOffers());
+    );
+    
     public static main: () ==> ()
     main() ==
     (
     	new JyveTest().testArtist();
     	new JyveTest().testAddArtistOffer();
+    	new JyveTest().testBand();
+    	new JyveTest().testBandRole();
+    	new JyveTest().testGig();
+    	new JyveTest().testHireBand();
     );
 	functions
 	-- TODO Define functiones here

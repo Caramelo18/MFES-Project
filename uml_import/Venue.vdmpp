@@ -1,13 +1,16 @@
 class Venue is subclass of Place
 	instance variables
 	  capacity: nat1;
-	  lighting: Utilitys`String;
-	  sound: Utilitys`String;
+	  lighting: seq of char;
+	  sound: seq of char;
 	  inv capacity > 0;
 	  
 	operations
-		public Venue : nat1 * Utilitys`String * Utilitys`String ==> Venue
-		Venue(cap, lig, s) == (
+		public Venue : PlaceOwner * seq of char * nat1 * nat1 * seq of char * seq of char ==> Venue
+		Venue(po, loc, sa, cap, lig, s) == (
+			placeOwner := po;
+			location := loc;
+			stageArea := sa;
 			capacity := cap;
 			lighting := lig;
 			sound := s;
@@ -23,14 +26,14 @@ class Venue is subclass of Place
 		pre capacity <> nc
 		post capacity~ = nc;
 		
-		public changeLighting : Utilitys`String ==> ()
+		public changeLighting : seq of char ==> ()
 		changeLighting(nl) == (
 			lighting := nl;
 		)
 		pre lighting <> nl
 		post lighting~ = nl;
 		
-		public changeSound : Utilitys`String ==> ()
+		public changeSound : seq of char ==> ()
 		changeSound(ns) == (
 			sound := ns;
 		)

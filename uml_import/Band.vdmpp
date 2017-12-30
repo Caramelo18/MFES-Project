@@ -1,6 +1,6 @@
 class Band is subclass of Profile		
 	instance variables
-	  genre:set of (Utilitys`Genre);
+	  genres:set of (Utilitys`Genre);
 	  public gigs: set of Gig;
 	  
 	  inv not exists g1, g2 in set gigs &
@@ -10,23 +10,29 @@ class Band is subclass of Profile
 		public Band: String ==> Band
 		Band(n) == (
 			name:= n;
-			genre:= {};
+			genres:= {};
 			gigs:= {};
 			return self;
 		);
+		
+		public getGenres: () ==> set of Utilitys`Genre
+		getGenres() == (
+			return genres;
+		);
+		
 	  public  addGenre : Utilitys`Genre  ==> ()
 	  addGenre(g) == (
-	  	genre:= genre union {g};
+	  	genres:= genres union {g};
 	  )
-	  pre g not in set genre
-	  post g in set genre~;
+	  pre g not in set genres
+	  post g in set genres;
 	
 	  public  deleteGenre : Utilitys`Genre  ==> ()
 	  deleteGenre(g) == (
-	  	genre:= genre \ {g};
+	  	genres:= genres \ {g};
 	  )
-	  pre g in set genre
-	  post g not in set genre~;
+	  pre g in set genres
+	  post g not in set genres;
 	  
 	  public addGig: Gig ==> ()
 	  addGig(g) == (
@@ -46,6 +52,6 @@ class Band is subclass of Profile
 	  	gigs := g;
 	  	return true;
 	  )
-	  post gigs~ = g;
+	  post gigs = g;
 
 end Band

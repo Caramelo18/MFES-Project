@@ -132,6 +132,20 @@ class AdvertisingBoard
 		pre ao not in set artistOffers
 		post ao in set artistOffers;
 		
+		public addBandRoleOffer: BandRole ==> ()
+		addBandRoleOffer(br) == (
+			bandRoleOffers := bandRoleOffers union {br};
+		)
+		pre br not in set bandRoleOffers
+		post br in set bandRoleOffers;
+		
+		public addHireBandOffer: HireBand ==> ()
+		addHireBandOffer(hb) == (
+			hireBandOffers := hireBandOffers union {hb};
+		)
+		pre hb not in set hireBandOffers
+		post hb in set hireBandOffers;
+		
 
 
 end AdvertisingBoard
