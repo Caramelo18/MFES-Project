@@ -33,14 +33,7 @@ class Band is subclass of Profile
 	  )
 	  pre g in set genres
 	  post g not in set genres;
-	  
-	  public addGig: Gig ==> ()
-	  addGig(g) == (
-	  	gigs := gigs union {g};
-	  )
-	  pre g not in set gigs
-	  post g in set gigs;
-	  
+	  	  
 	  public getGigs: () ==> set of Gig
 	  getGigs() == (
 	  	return gigs;

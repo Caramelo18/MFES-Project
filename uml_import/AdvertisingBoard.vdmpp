@@ -96,7 +96,7 @@ class AdvertisingBoard
 		
 		public listPlaceOffers: bool * bool * bool ==> set of PlaceOffer
 		listPlaceOffers(venue, rehearsal, recording) == (
-			dcl list: set of PlaceOffer:= {}, pq: Venue;
+			dcl list: set of PlaceOffer:= {};
 			
 			for all placeOffer in set placeOffers do (
 				if venue and isofclass(Venue, placeOffer.getPlace()) then(

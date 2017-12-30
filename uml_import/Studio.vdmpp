@@ -16,20 +16,24 @@ class Studio is subclass of Place
 		)
 		pre reh <> rec
 		post rehearsal <> recording;
-		
-		public changeRehearsal : bool ==> ()
-		changeRehearsal(nr) == (
-			rehearsal := nr;
+				
+		public setRehearsal: () ==> ()
+		setRehearsal() == (
+			atomic(
+				rehearsal := true;
+				recording := false;
+			);
 		)
-		pre rehearsal <> nr
-		post rehearsal~ = nr;
+		post rehearsal = true;
 		
-		public changeRecording : bool ==> ()
-		changeRecording(nr) == (
-			recording := nr;
+		public setRecording: () ==> ()
+		setRecording() == (
+			atomic(
+				rehearsal := false;
+				recording := true;
+			);
 		)
-		pre recording <> nr
-		post recording~ = nr;
+		post recording = true;
 		
 		public isRehearsal: () ==> bool
 		isRehearsal() == (

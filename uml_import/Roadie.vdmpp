@@ -10,11 +10,19 @@ class Roadie is subclass of Profile
 			return self;
 		);
 		
-	  public  setNewTask : Utilitys`Task  ==> ()
-	  setNewTask(nt) ==(
+	  public setTask : Utilitys`Task  ==> ()
+	  setTask(nt) ==(
 	  	task := nt;
 	  )
 	  pre task <> nt
-	  post task~ = nt;
+	  post task = nt;
+	  
+	  public getTask: () ==> Utilitys`Task
+	  getTask() == (
+	  	return task;
+	  )
+	  post task = task~;
+	  
+	  
 
 end Roadie

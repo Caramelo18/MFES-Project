@@ -29,6 +29,8 @@ class JyveTest
     	a1 := new Artist("Artist 1");
     	
     	assertEqual("Artist 1", a1.getName());
+    	a1.changeName("New Name");
+    	assertEqual("New Name", a1.getName());
     	
     	result := a1.playsInstrument(<Guitar>);
     	assertFalse(result);
@@ -54,8 +56,8 @@ class JyveTest
     	
     );
     
-    private testAddArtistOffer: () ==> ()
-    testAddArtistOffer() == (
+    private testArtistOffer: () ==> ()
+    testArtistOffer() == (
     	dcl a1: Artist, a2: Artist, ao1: ArtistOffer, ao2: ArtistOffer;
     	a1 := new Artist("Artist 1");
     	a1.addInstrument(<Guitar>);
@@ -128,7 +130,7 @@ class JyveTest
     	v := new Venue(po, "Montijo Portugal", 100, 15000, "Great", "Great");
     	
     	d1 := mk_Utilitys`Date(2017, 12, 31);
-    	d2 := mk_Utilitys`Date(2018, 01, 01);
+    	d2 := mk_Utilitys`Date(2018, 02, 20);
     	
     	g1 := new Gig(v, d1);
     	g2 := new Gig(v, d2);
@@ -156,31 +158,13 @@ class JyveTest
     	assertEqual("Event Organizer", eo.getName());
     	
     	hb1 := new HireBand(eo, "Montijo Portugal", mk_Utilitys`Date(2017, 12, 31));
-    	hb2 := new HireBand(eo, "Porto Portugal", mk_Utilitys`Date(2018, 03, 15));
+    	hb2 := new HireBand(eo, "Porto Portugal", mk_Utilitys`Date(2018, 04, 15));
     	
     	assertEqual({}, ab.listHireBandOffers());
     	
     	ab.addHireBandOffer(hb1);
     	ab.addHireBandOffer(hb2);
     	assertEqual({hb1, hb2}, ab.listHireBandOffers());
-    );
-    
-    private testRoadieOffer: () ==> ()
-    testRoadieOffer() == (
-    	dcl b: Band, ro1: RoadieOffer, ro2: RoadieOffer;
-    	
-    	b := new Band("Band 1");
-    	
-    	ro1 := new RoadieOffer(b, <Engineer>);
-    	ro2 := new RoadieOffer(b, <InstrumentTech>);
-    	
-    	assertEqual({}, ab.listRoadieOffers());
-    	
-    	ab.addRoadieOffer(ro1);
-    	ab.addRoadieOffer(ro2);
-    	assertEqual({ro1, ro2}, ab.listRoadieOffers());
-    	
-    	assertEqual({ro1}, ab.listRoadieOffers(<Engineer>));
     );
     
     private testPlaceOffer: () ==> ()
@@ -211,17 +195,94 @@ class JyveTest
     	
     );
     
+    private testRoadie: () ==> ()
+    testRoadie() == (
+    	dcl r: Roadie;
+    	r := new Roadie("Roadie 1", <SecurityGuard>);
+    	
+    	assertEqual(<SecurityGuard>, r.getTask());
+    	r.setTask(<Manager>);
+    	assertEqual(<Manager>, r.getTask());
+    );
+    
+    private testRoadieOffer: () ==> ()
+    testRoadieOffer() == (
+    	dcl b: Band, ro1: RoadieOffer, ro2: RoadieOffer;
+    	
+    	b := new Band("Band 1");
+    	
+    	ro1 := new RoadieOffer(b, <Engineer>);
+    	ro2 := new RoadieOffer(b, <InstrumentTech>);
+    	
+    	assertEqual({}, ab.listRoadieOffers());
+    	
+    	ab.addRoadieOffer(ro1);
+    	ab.addRoadieOffer(ro2);
+    	assertEqual({ro1, ro2}, ab.listRoadieOffers());
+    	
+    	assertEqual({ro1}, ab.listRoadieOffers(<Engineer>));
+    );
+    
+    
+    
+    private testStudio: () ==> ()
+    testStudio() == (
+    	dcl plo: PlaceOwner, p1: Studio;
+    	plo := new PlaceOwner("Place Owner");
+    	p1 := new Studio(plo, "Porto Portugal", 25, false, true);
+    	
+    	assertTrue(p1.isRecording());
+    	assertFalse(p1.isRehearsal());
+    	
+    	p1.setRehearsal();
+    	assertFalse(p1.isRecording());
+    	assertTrue(p1.isRehearsal());
+    	
+    	p1.setRecording();
+    	assertTrue(p1.isRecording());
+    	assertFalse(p1.isRehearsal());
+    );
+    
+    private testVenue: () ==> ()
+    testVenue() == (
+    	dcl plo: PlaceOwner, p1: Venue;
+    	plo := new PlaceOwner("Place Owner");
+    	p1 := new Venue(plo, "Porto Portugal", 25, 10000, "Ok", "Good");
+    	
+    	assertEqual(25, p1.getStageArea());
+    	p1.changeStageArea(50);
+    	assertEqual(50, p1.getStageArea());
+    	
+    	assertEqual(10000, p1.getCapacity());
+    	p1.changeCapacity(5000);
+    	assertEqual(5000, p1.getCapacity());
+    	
+    	assertEqual("Ok", p1.getLighting());
+    	p1.changeLighting("Bad");
+    	assertEqual("Bad", p1.getLighting());
+    	
+    	assertEqual("Good", p1.getSound());
+    	p1.changeSound("Great");
+    	assertEqual("Great", p1.getSound());
+    	
+    );
+    
+    
+    
     public static main: () ==> ()
     main() ==
     (
     	new JyveTest().testArtist();
-    	new JyveTest().testAddArtistOffer();
+    	new JyveTest().testArtistOffer();
     	new JyveTest().testBand();
     	new JyveTest().testBandRole();
     	new JyveTest().testGig();
     	new JyveTest().testHireBand();
-    	new JyveTest().testRoadieOffer();
     	new JyveTest().testPlaceOffer();
+    	new JyveTest().testRoadie();
+    	new JyveTest().testRoadieOffer();
+    	new JyveTest().testStudio();
+    	new JyveTest().testVenue();
     );
 	functions
 	-- TODO Define functiones here

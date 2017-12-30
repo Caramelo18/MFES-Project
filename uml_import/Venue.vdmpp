@@ -19,25 +19,43 @@ class Venue is subclass of Place
 		pre cap > 0	
 		post capacity > 0;
 		
-		public changeCapcity : nat1 ==> ()
-		changeCapcity(nc) == (
+		public changeCapacity : nat1 ==> ()
+		changeCapacity(nc) == (
 			capacity := nc;
 		)
 		pre capacity <> nc
-		post capacity~ = nc;
+		post capacity = nc;
 		
 		public changeLighting : seq of char ==> ()
 		changeLighting(nl) == (
 			lighting := nl;
 		)
 		pre lighting <> nl
-		post lighting~ = nl;
+		post lighting = nl;
 		
 		public changeSound : seq of char ==> ()
 		changeSound(ns) == (
 			sound := ns;
 		)
 		pre sound <> ns
-		post sound~ = ns;
+		post sound = ns;
+		
+		public getCapacity: () ==> nat1
+		getCapacity() == (
+			return capacity;
+		)
+		post capacity = capacity~;
+		
+		public getLighting: () ==> seq of char
+		getLighting() == (
+			return lighting;
+		)
+		post lighting = lighting~;
+		
+		public getSound: () ==> seq of char
+		getSound() == (
+			return sound;
+		)
+		post sound = sound~;
 		
 end Venue

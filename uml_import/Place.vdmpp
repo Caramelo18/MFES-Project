@@ -16,11 +16,17 @@ class Place
 	  	return self;
 	  );
 	  
-	  public changeStage_area : nat1 ==> ()
-		changeStage_area(nsa) == (
+	  public changeStageArea : nat1 ==> ()
+		changeStageArea(nsa) == (
 			stageArea := nsa;
 		)
 		pre stageArea <> nsa
-		post stageArea~ = nsa;
+		post stageArea = nsa;
+		
+		public getStageArea: () ==> nat1
+		getStageArea() == (
+			return stageArea;
+		)
+		post stageArea = stageArea~;
 
 end Place

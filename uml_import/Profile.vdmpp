@@ -15,7 +15,7 @@ class Profile
 	  	name := nn;
 	  )
 	  pre name <> nn
-	  post name~ = nn;
+	  post name = nn;
 	  
 	  public getName: () ==> String
 	  getName() == (
