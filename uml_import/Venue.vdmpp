@@ -3,6 +3,7 @@ class Venue is subclass of Place
 	  capacity: nat1;
 	  lighting: seq of char;
 	  sound: seq of char;
+	  public gigs: set of Gig;
 	  inv capacity > 0;
 	  
 	operations
@@ -14,10 +15,18 @@ class Venue is subclass of Place
 			capacity := cap;
 			lighting := lig;
 			sound := s;
+			gigs := {};
 			return self;
 		)
 		pre cap > 0	
 		post capacity > 0;
+		
+		public setGigs: set of Gig ==> bool
+	  setGigs(g) == (
+	  	gigs := g;
+	  	return true;
+	  )
+	  post gigs = g;
 		
 		public changeCapacity : nat1 ==> ()
 		changeCapacity(nc) == (
@@ -57,5 +66,15 @@ class Venue is subclass of Place
 			return sound;
 		)
 		post sound = sound~;
+		
+		public isAvailable: Utilitys`Date ==> bool
+		isAvailable(date) == (
+			for all gig in set gigs do (
+				if gig.getDate() = date then
+					return false;
+			);
+			
+			return true;
+		)
 		
 end Venue

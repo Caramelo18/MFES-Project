@@ -222,9 +222,7 @@ class JyveTest
     	
     	assertEqual({ro1}, ab.listRoadieOffers(<Engineer>));
     );
-    
-    
-    
+        
     private testStudio: () ==> ()
     testStudio() == (
     	dcl plo: PlaceOwner, p1: Studio;
@@ -267,6 +265,29 @@ class JyveTest
     	
     );
     
+    private testAvailableVenues: () ==> ()
+    testAvailableVenues() == (
+    	dcl plo: PlaceOwner, v1: Venue, v2: Venue, po1: PlaceOffer, po2: PlaceOffer, d: Utilitys`Date, g: Gig;
+    	plo := new PlaceOwner("Place Owner");
+    	v1 := new Venue(plo, "Porto Portugal", 25, 10000, "Ok", "Good");
+    	v2 := new Venue(plo, "Feira Portugal", 20, 2000, "Ok", "Ok");
+    	
+    	po1 := new PlaceOffer(v1);
+    	po2 := new PlaceOffer(v2);
+    	ab.addPlaceOffer(po1);
+    	ab.addPlaceOffer(po2);
+    	
+    	d := mk_Utilitys`Date(2017, 12, 31);
+    	
+    	assertEqual({po1, po2}, ab.listAvailableVenues(d));
+    	
+    	g := new Gig(v2, mk_Utilitys`Date(2017, 12, 31));
+    	assertEqual({po1}, ab.listAvailableVenues(d));
+    	
+    	
+    	
+    );
+    
     
     
     public static main: () ==> ()
@@ -283,6 +304,7 @@ class JyveTest
     	new JyveTest().testRoadieOffer();
     	new JyveTest().testStudio();
     	new JyveTest().testVenue();
+    	new JyveTest().testAvailableVenues();
     );
 	functions
 	-- TODO Define functiones here

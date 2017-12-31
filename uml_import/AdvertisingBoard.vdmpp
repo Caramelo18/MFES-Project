@@ -116,6 +116,21 @@ class AdvertisingBoard
 			or (not venue and (rehearsal <> recording))
 		post placeOffers = placeOffers~;
 		
+		public listAvailableVenues: Utilitys`Date ==> set of PlaceOffer
+		listAvailableVenues(date) == (
+			dcl list: set of PlaceOffer:= {};
+		
+			for all placeOffer in set placeOffers do(
+				if isofclass(Venue, placeOffer.getPlace()) then(
+					dcl venue: Venue := placeOffer.getPlace();
+					if venue.isAvailable(date) then
+						list := list union {placeOffer}
+				)
+			);
+			
+			return list;
+		);
+		
 		
 		public listHireBandOffers: () ==> set of HireBand
 		listHireBandOffers() == (

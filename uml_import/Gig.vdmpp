@@ -4,13 +4,19 @@ class Gig
 	  venue: Venue;
 	  date: Utilitys`Date;
 	  
-	  inv isConsistent();
+	  inv bandIsConsistent();
+	  inv venueIsConsistent();
 	
 	operations
 		public Gig : Venue * Utilitys`Date ==> Gig
 		Gig(v, d) == (
+			dcl result: bool, venueGigs: set of Gig := v.gigs;
+			venueGigs := venueGigs union {self};
 			performingBands:= {};
-			venue:= v;
+			atomic(
+				venue:= v;
+				result := v.setGigs(venueGigs);
+			);
 			date:= d;
 			return self;
 		);
@@ -43,9 +49,15 @@ class Gig
 		)
 		post performingBands = performingBands~ and RESULT = performingBands;
 		
-		pure private isConsistent: () ==> bool
-		isConsistent() == (
+		pure private bandIsConsistent: () ==> bool
+		bandIsConsistent() == (
 			return forall pb in set performingBands &
 		  		  self in set pb.gigs;
-		)
+		);
+		
+		pure private venueIsConsistent: () ==> bool
+		venueIsConsistent() == (
+			return self in set venue.gigs;
+		);
+		
 end Gig
