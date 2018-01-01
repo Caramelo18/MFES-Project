@@ -41,7 +41,14 @@ class Gig
 		pure public getDate: () ==> Utilitys`Date
 		getDate() == (
 			return date;
-		);
+		)
+		post date = date~ and RESULT = date;
+		
+		pure public getVenue: () ==> Venue
+		getVenue() == (
+			return venue;
+		)
+		post venue = venue~ and RESULT = venue;
 		
 		public getBands: () ==> set of Band
 		getBands() == (
