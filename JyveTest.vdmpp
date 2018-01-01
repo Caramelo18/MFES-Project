@@ -134,6 +134,13 @@ class JyveTest
     	
     	g1 := new Gig(v, d1);
     	g2 := new Gig(v, d2);
+    	ab.addGig(g1);
+    	ab.addGig(g2);
+    	
+    	assertEqual({g1, g2}, ab.listGigs());
+    	assertEqual({g1, g2}, ab.listGigs(v));
+    	assertEqual({g1}, ab.listGigs(d1));
+    	assertEqual({g2}, ab.listGigs(d2));
     	
     	assertEqual({}, b1.getGigs());
     	assertEqual({}, g1.getBands());
