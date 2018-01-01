@@ -13,11 +13,11 @@ class Gig
 			dcl result: bool, venueGigs: set of Gig := v.gigs;
 			venueGigs := venueGigs union {self};
 			performingBands:= {};
+			date:= d;
 			atomic(
 				venue:= v;
 				result := v.setGigs(venueGigs);
 			);
-			date:= d;
 			return self;
 		);
 		
