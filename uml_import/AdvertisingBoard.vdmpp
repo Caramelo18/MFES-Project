@@ -1,7 +1,7 @@
 class AdvertisingBoard
 	instance variables
 		artistOffers: set of ArtistOffer;
-		bandRoleOffers: set of BandRole;
+		bandRoleOffers: map Utilitys`Instrument to (set of BandRole);
 		roadieOffers: set of RoadieOffer;
 		placeOffers: set of PlaceOffer;
 		hireBandOffers: set of HireBand;
@@ -14,7 +14,9 @@ class AdvertisingBoard
 			if initialized then return self;
 			
 			artistOffers := {};
-			bandRoleOffers := {};
+			bandRoleOffers := {<Guitar> |-> {}, <Bass> |-> {}, <Drums> |-> {}, <Piano> |-> {}, <Vocal> |-> {}, <DJ> |-> {},
+													<Saxophone> |-> {}, <Violin> |-> {}, <Accordeon> |-> {}, <Tuba> |-> {}, <DoubleBass> |-> {},
+													<Viola> |-> {}, <Cello> |-> {}, <Xylophone> |-> {}, <Bagpipes> |-> {}};
 			roadieOffers := {};
 			placeOffers := {};
 			hireBandOffers := {};
@@ -48,23 +50,21 @@ class AdvertisingBoard
 				and forall artistOffer in set RESULT & artistOffer.getArtist().playsInstrument(i);
 		
 		
-		public listBandRoleOffers: () ==> set of BandRole
+		pure public listBandRoleOffers: () ==> set of BandRole
 		listBandRoleOffers() == (
-			return bandRoleOffers;
+			dcl list: set of BandRole := {};
+			
+			for all bro in set rng bandRoleOffers do
+				list := list union bro;
+			
+			return list;
 		)
 		post bandRoleOffers = bandRoleOffers~;
 		
 		
 		public listBandRoleOffers: Utilitys`Instrument ==> set of BandRole
-		listBandRoleOffers(i) == (
-			dcl list : set of BandRole := {};
-			
-			for all bandRoleOffer in set bandRoleOffers do (
-				if bandRoleOffer.getRole() = i then
-					list := list union {bandRoleOffer}
-			);
-			
-			return list;
+		listBandRoleOffers(i) == (		
+			return bandRoleOffers(i);
 		)
 		post bandRoleOffers = bandRoleOffers~
 				and forall bandRoleOffer in set RESULT & i = bandRoleOffer.getRole();
@@ -181,10 +181,13 @@ class AdvertisingBoard
 		
 		public addBandRoleOffer: BandRole ==> ()
 		addBandRoleOffer(br) == (
-			bandRoleOffers := bandRoleOffers union {br};
+			dcl newOffers: set of BandRole := bandRoleOffers(br.getRole()), newMap: map Utilitys`Instrument to (set of BandRole);
+			newOffers:= newOffers union {br};
+			newMap := {br.getRole() |-> newOffers};
+			bandRoleOffers := bandRoleOffers ++ newMap;
 		)
-		pre br not in set bandRoleOffers
-		post br in set bandRoleOffers;
+		pre br not in set listBandRoleOffers()
+		post br in set listBandRoleOffers();
 		
 		public addRoadieOffer: RoadieOffer ==> ()
 		addRoadieOffer(oo) == (
