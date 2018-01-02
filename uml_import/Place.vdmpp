@@ -1,6 +1,4 @@
 class Place
-	types
-		public String :: seq of char;
 	instance variables
 	  protected placeOwner: PlaceOwner;
 	 	protected location: seq of char;

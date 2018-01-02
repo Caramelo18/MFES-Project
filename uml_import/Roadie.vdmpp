@@ -1,23 +1,23 @@
 class Roadie is subclass of Profile
 	instance variables
-	  task: Utilitys`Task;
+	  task: JyveUtils`Task;
 	
 	operations
-		public Roadie : String * Utilitys`Task ==> Roadie
+		public Roadie : String * JyveUtils`Task ==> Roadie
 		Roadie(n, t) == (
 			name:= n;
 			task:= t;
 			return self;
 		);
 		
-	  public setTask : Utilitys`Task  ==> ()
+	  public setTask : JyveUtils`Task  ==> ()
 	  setTask(nt) ==(
 	  	task := nt;
 	  )
 	  pre task <> nt
 	  post task = nt;
 	  
-	  public getTask: () ==> Utilitys`Task
+	  public getTask: () ==> JyveUtils`Task
 	  getTask() == (
 	  	return task;
 	  )

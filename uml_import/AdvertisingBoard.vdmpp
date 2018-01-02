@@ -1,28 +1,24 @@
 class AdvertisingBoard
 	instance variables
 		artistOffers: set of ArtistOffer;
-		bandRoleOffers: map Utilitys`Instrument to (set of BandRole);
-		roadieOffers: set of RoadieOffer;
+		bandRoleOffers: map JyveUtils`Instrument to (set of BandRole);
+		roadieOffers: inmap JyveUtils`Task to (set of RoadieOffer);
 		placeOffers: set of PlaceOffer;
 		hireBandOffers: set of HireBand;
 		gigs: set of Gig;
-		initialized: bool := false;
 		
 	operations
 		public AdvertisingBoard: () ==> AdvertisingBoard
 		AdvertisingBoard() == ( 
-			if initialized then return self;
 			
 			artistOffers := {};
 			bandRoleOffers := {<Guitar> |-> {}, <Bass> |-> {}, <Drums> |-> {}, <Piano> |-> {}, <Vocal> |-> {}, <DJ> |-> {},
 													<Saxophone> |-> {}, <Violin> |-> {}, <Accordeon> |-> {}, <Tuba> |-> {}, <DoubleBass> |-> {},
 													<Viola> |-> {}, <Cello> |-> {}, <Xylophone> |-> {}, <Bagpipes> |-> {}};
-			roadieOffers := {};
+			roadieOffers := {|->};
 			placeOffers := {};
 			hireBandOffers := {};
 			gigs := {};
-			
-			initialized := true;
 			
 			return self;
 		);
@@ -35,7 +31,7 @@ class AdvertisingBoard
 		post artistOffers = artistOffers~;
 		
 		
-		public listArtistOffers: Utilitys`Instrument ==> set of ArtistOffer
+		public listArtistOffers: JyveUtils`Instrument ==> set of ArtistOffer
 		listArtistOffers(i) == (
 			dcl list : set of ArtistOffer := {};
 			
@@ -62,7 +58,7 @@ class AdvertisingBoard
 		post bandRoleOffers = bandRoleOffers~;
 		
 		
-		public listBandRoleOffers: Utilitys`Instrument ==> set of BandRole
+		pure public listBandRoleOffers: JyveUtils`Instrument ==> set of BandRole
 		listBandRoleOffers(i) == (		
 			return bandRoleOffers(i);
 		)
@@ -70,22 +66,20 @@ class AdvertisingBoard
 				and forall bandRoleOffer in set RESULT & i = bandRoleOffer.getRole();
 		
 		
-		public listRoadieOffers: () ==> set of RoadieOffer
+		pure public listRoadieOffers: () ==> set of RoadieOffer
 		listRoadieOffers() == (
-			return roadieOffers;
+			dcl res: set of RoadieOffer := {};
+			
+			for all ro in set rng roadieOffers do
+				res := res union ro;
+			
+			return res;
 		)
 		post roadieOffers = roadieOffers~;
 		
-		public listRoadieOffers: Utilitys`Task ==> set of RoadieOffer
+		public listRoadieOffers: JyveUtils`Task ==> set of RoadieOffer
 		listRoadieOffers(task) == (
-			dcl list : set of RoadieOffer := {};
-			
-			for all roadieOffer in set roadieOffers do (
-				if roadieOffer.getTask() = task then
-					list := list union {roadieOffer}
-			);
-			
-			return list;
+			return roadieOffers(task);
 		)
 		post roadieOffers = roadieOffers~;
 		
@@ -118,7 +112,7 @@ class AdvertisingBoard
 			or (not venue and (rehearsal <> recording))
 		post placeOffers = placeOffers~;
 		
-		public listAvailableVenues: Utilitys`Date ==> set of PlaceOffer
+		public listAvailableVenues: JyveUtils`Date ==> set of PlaceOffer
 		listAvailableVenues(date) == (
 			dcl list: set of PlaceOffer:= {};
 		
@@ -159,7 +153,7 @@ class AdvertisingBoard
 		)
 		post gigs = gigs~;
 		
-		public listGigs: Utilitys`Date ==> set of Gig
+		public listGigs: JyveUtils`Date ==> set of Gig
 		listGigs(d) == (
 			dcl gs: set of Gig := {};
 			
@@ -181,7 +175,7 @@ class AdvertisingBoard
 		
 		public addBandRoleOffer: BandRole ==> ()
 		addBandRoleOffer(br) == (
-			dcl newOffers: set of BandRole := bandRoleOffers(br.getRole()), newMap: map Utilitys`Instrument to (set of BandRole);
+			dcl newOffers: set of BandRole := bandRoleOffers(br.getRole()), newMap: map JyveUtils`Instrument to (set of BandRole);
 			newOffers:= newOffers union {br};
 			newMap := {br.getRole() |-> newOffers};
 			bandRoleOffers := bandRoleOffers ++ newMap;
@@ -191,10 +185,17 @@ class AdvertisingBoard
 		
 		public addRoadieOffer: RoadieOffer ==> ()
 		addRoadieOffer(oo) == (
-			roadieOffers := roadieOffers union {oo};
+			dcl newOffers: set of RoadieOffer := {}, newInMap: inmap JyveUtils`Task to (set of RoadieOffer);
+			
+			if oo.getTask() in set dom roadieOffers then
+				newOffers := roadieOffers(oo.getTask());
+			
+			newOffers := newOffers union {oo};
+			newInMap := {oo.getTask() |-> newOffers};
+			roadieOffers := roadieOffers ++ newInMap;
 		)
-		pre oo not in set roadieOffers
-		post oo in set roadieOffers;
+		pre oo not in set listRoadieOffers()
+		post oo in set listRoadieOffers();
 		
 		public addPlaceOffer: PlaceOffer ==> ()
 		addPlaceOffer(po) == (

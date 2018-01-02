@@ -12,6 +12,7 @@ operations
   pure public getArtist: () ==> Artist
   getArtist() == (
   	return artist;
-  );
+  )
+  post artist~ = artist;
 
 end ArtistOffer

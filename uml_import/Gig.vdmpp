@@ -2,13 +2,13 @@ class Gig
 	instance variables
 	  performingBands: set of (Band);
 	  venue: Venue;
-	  date: Utilitys`Date;
+	  date: JyveUtils`Date;
 	  
 	  inv bandIsConsistent();
 	  inv venueIsConsistent();
 	
 	operations
-		public Gig : Venue * Utilitys`Date ==> Gig
+		public Gig : Venue * JyveUtils`Date ==> Gig
 		Gig(v, d) == (
 			dcl result: bool, venueGigs: set of Gig := v.gigs;
 			venueGigs := venueGigs union {self};
@@ -38,7 +38,7 @@ class Gig
 	  post b in set performingBands
 	  		and RESULT;
 	
-		pure public getDate: () ==> Utilitys`Date
+		pure public getDate: () ==> JyveUtils`Date
 		getDate() == (
 			return date;
 		)

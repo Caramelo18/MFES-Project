@@ -69,7 +69,7 @@ class Venue is subclass of Place
 		)
 		post sound = sound~;
 		
-		public isAvailable: Utilitys`Date ==> bool
+		public isAvailable: JyveUtils`Date ==> bool
 		isAvailable(date) == (
 			for all gig in set gigs do (
 				if gig.getDate() = date then

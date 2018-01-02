@@ -1,6 +1,6 @@
 class Band is subclass of Profile		
 	instance variables
-	  genres:set of (Utilitys`Genre);
+	  genres:set of (JyveUtils`Genre);
 	  public gigs: set of Gig;
 	  
 	  inv not exists g1, g2 in set gigs &
@@ -15,19 +15,19 @@ class Band is subclass of Profile
 			return self;
 		);
 		
-		public getGenres: () ==> set of Utilitys`Genre
+		public getGenres: () ==> set of JyveUtils`Genre
 		getGenres() == (
 			return genres;
 		);
 		
-	  public  addGenre : Utilitys`Genre  ==> ()
+	  public  addGenre : JyveUtils`Genre  ==> ()
 	  addGenre(g) == (
 	  	genres:= genres union {g};
 	  )
 	  pre g not in set genres
 	  post g in set genres;
 	
-	  public  deleteGenre : Utilitys`Genre  ==> ()
+	  public  deleteGenre : JyveUtils`Genre  ==> ()
 	  deleteGenre(g) == (
 	  	genres:= genres \ {g};
 	  )

@@ -4,10 +4,10 @@ class HireBand is subclass of Offer
 	instance variables
 	  eventOrganizer: EventOrganizer;
 	  location: seq of char;
-	  date: Utilitys`Date;
+	  date: JyveUtils`Date;
 	
 	operations
-		public HireBand : EventOrganizer * seq of char * Utilitys`Date ==> HireBand
+		public HireBand : EventOrganizer * seq of char * JyveUtils`Date ==> HireBand
 		HireBand(e, l, d) == (
 			eventOrganizer := e;
 			location := l;

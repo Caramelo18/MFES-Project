@@ -1,17 +1,17 @@
 class BandRole is subclass of Offer
 	instance variables
 	  band_role_offer: Band;
-	  desired_role: Utilitys`Instrument;
+	  desired_role: JyveUtils`Instrument;
 	
 	operations
-	  public  BandRole : Band * Utilitys`Instrument ==> BandRole
+	  public  BandRole : Band * JyveUtils`Instrument ==> BandRole
 	  BandRole(b, d) == (
 	  	band_role_offer := b;
 	  	desired_role := d;
 	  	return self;
 	  );
 	  
-	  pure public getRole: () ==> Utilitys`Instrument
+	  pure public getRole: () ==> JyveUtils`Instrument
 	  getRole() == ( 
 	  	return desired_role;
 	  )

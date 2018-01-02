@@ -1,6 +1,6 @@
 class Artist is subclass of Profile		
 	instance variables
-	  instruments:set of (Utilitys`Instrument);
+	  instruments:set of (JyveUtils`Instrument);
 	
 	operations
 		public Artist : String ==> Artist
@@ -10,23 +10,24 @@ class Artist is subclass of Profile
 			return self;
 		);
 	
-		public addInstrument : Utilitys`Instrument ==> ()
+		public addInstrument : JyveUtils`Instrument ==> ()
 	  addInstrument(i) == (
 	    instruments:= instruments union {i};
 	  )
 	  pre i not in set instruments
 	  post i in set instruments;
 	
-	  public  deleteInstrument : Utilitys`Instrument  ==> ()
+	  public  deleteInstrument : JyveUtils`Instrument  ==> ()
 	  deleteInstrument(i) == (
 	  	instruments := instruments \ {i};
 	  )
 	  pre i in set instruments
 	  post i not in set instruments;
 	  
-	  pure public playsInstrument: Utilitys`Instrument ==> bool
+	  pure public playsInstrument: JyveUtils`Instrument ==> bool
 	  playsInstrument(i) == (
 	  	return i in set instruments;
-	  );
+	  )
+	  post instruments~ = instruments;
 	
 end Artist

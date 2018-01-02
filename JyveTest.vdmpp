@@ -121,7 +121,7 @@ class JyveTest
     
     private testGig: () ==> ()
     testGig() == (
-    	dcl b1: Band, b2: Band, po: PlaceOwner, v: Venue, d1: Utilitys`Date, d2: Utilitys`Date, g1: Gig, g2: Gig, result: bool;
+    	dcl b1: Band, b2: Band, po: PlaceOwner, v: Venue, d1: JyveUtils`Date, d2: JyveUtils`Date, g1: Gig, g2: Gig, result: bool;
     	b1 := new Band("Band 1");
     	b2 := new Band("Band 2");
     	
@@ -129,8 +129,8 @@ class JyveTest
     	
     	v := new Venue(po, "Montijo Portugal", 100, 15000, "Great", "Great");
     	
-    	d1 := mk_Utilitys`Date(2017, 12, 31);
-    	d2 := mk_Utilitys`Date(2018, 02, 20);
+    	d1 := mk_JyveUtils`Date(2017, 12, 31);
+    	d2 := mk_JyveUtils`Date(2018, 02, 20);
     	
     	g1 := new Gig(v, d1);
     	g2 := new Gig(v, d2);
@@ -164,8 +164,8 @@ class JyveTest
     	
     	assertEqual("Event Organizer", eo.getName());
     	
-    	hb1 := new HireBand(eo, "Montijo Portugal", mk_Utilitys`Date(2017, 12, 31));
-    	hb2 := new HireBand(eo, "Porto Portugal", mk_Utilitys`Date(2018, 04, 15));
+    	hb1 := new HireBand(eo, "Montijo Portugal", mk_JyveUtils`Date(2017, 12, 31));
+    	hb2 := new HireBand(eo, "Porto Portugal", mk_JyveUtils`Date(2018, 04, 15));
     	
     	assertEqual({}, ab.listHireBandOffers());
     	
@@ -274,7 +274,7 @@ class JyveTest
     
     private testAvailableVenues: () ==> ()
     testAvailableVenues() == (
-    	dcl plo: PlaceOwner, v1: Venue, v2: Venue, po1: PlaceOffer, po2: PlaceOffer, d: Utilitys`Date, g: Gig;
+    	dcl plo: PlaceOwner, v1: Venue, v2: Venue, po1: PlaceOffer, po2: PlaceOffer, d: JyveUtils`Date, g: Gig;
     	plo := new PlaceOwner("Place Owner");
     	v1 := new Venue(plo, "Porto Portugal", 25, 10000, "Ok", "Good");
     	v2 := new Venue(plo, "Feira Portugal", 20, 2000, "Ok", "Ok");
@@ -284,11 +284,11 @@ class JyveTest
     	ab.addPlaceOffer(po1);
     	ab.addPlaceOffer(po2);
     	
-    	d := mk_Utilitys`Date(2017, 12, 31);
+    	d := mk_JyveUtils`Date(2017, 12, 31);
     	
     	assertEqual({po1, po2}, ab.listAvailableVenues(d));
     	
-    	g := new Gig(v2, mk_Utilitys`Date(2017, 12, 31));
+    	g := new Gig(v2, mk_JyveUtils`Date(2017, 12, 31));
     	assertEqual({po1}, ab.listAvailableVenues(d));
     	
     	
