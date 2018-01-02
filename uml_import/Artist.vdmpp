@@ -3,7 +3,7 @@ class Artist is subclass of Profile
 	  instruments:set of (JyveUtils`Instrument);
 	
 	operations
-		public Artist : String ==> Artist
+		public Artist : seq of char ==> Artist
 		Artist(n) == (
 			name := n;
 			instruments := {};

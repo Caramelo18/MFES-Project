@@ -3,7 +3,7 @@ class Roadie is subclass of Profile
 	  task: JyveUtils`Task;
 	
 	operations
-		public Roadie : String * JyveUtils`Task ==> Roadie
+		public Roadie : seq of char * JyveUtils`Task ==> Roadie
 		Roadie(n, t) == (
 			name:= n;
 			task:= t;

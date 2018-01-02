@@ -1,7 +1,7 @@
 class EventOrganizer is subclass of Profile
 
 	operations
-		public EventOrganizer: String ==> EventOrganizer
+		public EventOrganizer: seq of char ==> EventOrganizer
 		EventOrganizer(n) == (
 			name:= n;
 			return self;
