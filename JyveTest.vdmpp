@@ -214,20 +214,23 @@ class JyveTest
     
     private testRoadieOffer: () ==> ()
     testRoadieOffer() == (
-    	dcl b: Band, ro1: RoadieOffer, ro2: RoadieOffer;
+    	dcl b: Band, ro1: RoadieOffer, ro2: RoadieOffer, ro3: RoadieOffer;
     	
     	b := new Band("Band 1");
     	
     	ro1 := new RoadieOffer(b, <Engineer>);
     	ro2 := new RoadieOffer(b, <InstrumentTech>);
+    	ro3 := new RoadieOffer(b, <Engineer>);
     	
     	assertEqual({}, ab.listRoadieOffers());
     	
     	ab.addRoadieOffer(ro1);
     	ab.addRoadieOffer(ro2);
     	assertEqual({ro1, ro2}, ab.listRoadieOffers());
+    	ab.addRoadieOffer(ro3);
+    	assertEqual({ro1, ro2, ro3}, ab.listRoadieOffers());
     	
-    	assertEqual({ro1}, ab.listRoadieOffers(<Engineer>));
+    	assertEqual({ro1, ro3}, ab.listRoadieOffers(<Engineer>));
     );
         
     private testStudio: () ==> ()
