@@ -12,6 +12,7 @@ class Studio is subclass of Place
 			stageArea := sa;
 			rehearsal := reh;
 			recording := rec;
+			AdvertisingBoard`addPlace(self);
 			return self;
 		)
 		pre reh <> rec

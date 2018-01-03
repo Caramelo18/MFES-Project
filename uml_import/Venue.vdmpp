@@ -18,6 +18,7 @@ class Venue is subclass of Place
 			lighting := lig;
 			sound := s;
 			gigs := {};
+			AdvertisingBoard`addPlace(self);
 			return self;
 		)
 		pre cap > 0	

@@ -6,6 +6,7 @@ class AdvertisingBoard
 		placeOffers: set of PlaceOffer;
 		hireBandOffers: set of HireBand;
 		gigs: set of Gig;
+		static places: seq of Place := [];
 		
 	operations
 		public AdvertisingBoard: () ==> AdvertisingBoard
@@ -166,6 +167,24 @@ class AdvertisingBoard
 		)
 		post gigs = gigs~;
 		
+		public static listPlaces: () ==> seq of Place
+		listPlaces() == (
+			return places;
+		)
+		post places = places~;
+		
+		public static listVenues: () ==> seq of Venue
+		listVenues() == (
+			dcl res: seq of Venue := [];
+			
+			for all p in set elems places do (
+				if isofclass(Venue, p) then
+					res := res ^[p];
+			);
+			return res;
+		)
+		post places = places~;
+		
 		public addArtistOffer: ArtistOffer ==> ()
 		addArtistOffer(ao) == (
 			artistOffers := artistOffers union {ao};
@@ -217,6 +236,13 @@ class AdvertisingBoard
 		)
 		pre g not in set gigs
 		post g in set gigs;
+		
+		public static addPlace: Place ==> ()
+		addPlace(p) == (
+			places := places ^[p];
+		)
+		pre p not in set elems places
+		post p in set elems places; 
 		
 
 

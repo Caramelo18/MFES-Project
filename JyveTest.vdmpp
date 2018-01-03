@@ -56,6 +56,20 @@ class JyveTest
     	
     );
     
+    private testPlaces: () ==> ()
+    testPlaces() == (
+    	dcl s: Studio, v: Venue, plo: PlaceOwner;
+    	assertEqual([], AdvertisingBoard`listPlaces());
+    	plo := new PlaceOwner("Place Owner");
+    	
+    	s := new Studio(plo, "Porto Portugal", 25, false, true);
+    	assertEqual([s], AdvertisingBoard`listPlaces());
+    	
+    	v := new Venue(plo, "Feira Portugal", 75, 2000, "Ok", "Ok");
+    	assertEqual([s, v], AdvertisingBoard`listPlaces());
+    	assertEqual([v], AdvertisingBoard`listVenues());
+    );
+    
     private testArtistOffer: () ==> ()
     testArtistOffer() == (
     	dcl a1: Artist, a2: Artist, ao1: ArtistOffer, ao2: ArtistOffer;
@@ -303,6 +317,7 @@ class JyveTest
     public static main: () ==> ()
     main() ==
     (
+    	new JyveTest().testPlaces();
     	new JyveTest().testArtist();
     	new JyveTest().testArtistOffer();
     	new JyveTest().testBand();
