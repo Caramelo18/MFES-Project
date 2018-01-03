@@ -14,13 +14,6 @@ class JyveTest
     
     private assertEqual: ? * ? ==> ()
     assertEqual(expected, actual) == return
---        if expected <> actual then (
---              IO`print("Actual value (");
---              IO`print(actual); 
---              IO`print(") different from expected (");
---              IO`print(expected);
---              IO`println(")\n");
---        )
     post expected = actual;
     
     private testArtist: () ==> ()
@@ -336,10 +329,32 @@ class JyveTest
     	g := new Gig(v2, mk_JyveUtils`Date(2017, 12, 31));
     	assertEqual({po1}, ab.listAvailableVenues(d));
     	
+    );
+    
+    --tests to validate some preconditions, postconditions and invariants
+    private invalidTests: () ==> ()
+    invalidTests() == (
+    	dcl d: JyveUtils`Date, g1: Gig, g2: Gig, b: Band, v1: Venue, v2: Venue, r1: bool, r2: bool;
+    	
+    	--d := mk_JyveUtils`Date(2017, 15, 01); -- invalid date
+    	--d := mk_JyveUtils`Date(2017, 2, 29); -- invalid date
+    	
+    	v1 := new Venue(new PlaceOwner("Place Owner"), "Porto Portugal", 25, 10000, "Ok", "Good");
+    	v2 := new Venue(new PlaceOwner("Place Owner"), "Porto Portugal", 25, 10000, "Ok", "Good");
+    	b := new Band("Band 1");
+    
+    	g1 := new Gig(v1, mk_JyveUtils`Date(2019, 12, 19));
+    --	g2 := new Gig(v, mk_JyveUtils`Date(2019, 12, 19)); -- two gigs on the same venue on the same date
+    
+    	g2 := new Gig(v2, mk_JyveUtils`Date(2019, 12, 19)); 
+    	
+    	r1 := g1.addBand(b);
+    	--r2 := g2.addBand(b); -- two gigs on the same date
+    	
+    	--v1.changeLighting("Ok"); -- pre condition states that the new lighting description must be different than the actual
     	
     	
     );
-    
     
     
     public static main: () ==> ()
@@ -358,6 +373,8 @@ class JyveTest
     	new JyveTest().testStudio();
     	new JyveTest().testVenue();
     	new JyveTest().testAvailableVenues();
+    	
+    	new JyveTest().invalidTests();
     );
 	functions
 	-- TODO Define functiones here
