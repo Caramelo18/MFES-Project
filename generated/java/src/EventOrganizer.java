@@ -19,8 +19,6 @@ public class EventOrganizer extends Profile {
 
   public String toString() {
 
-    return "EventOrganizer{"
-    	+ "name := "
-    	+  name + " }";
+    return "EventOrganizer{ name := " + name + " }";
   }
 }

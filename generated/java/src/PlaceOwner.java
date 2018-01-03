@@ -19,9 +19,6 @@ public class PlaceOwner extends Profile {
 
   public String toString() {
 
-    return "PlaceOwner{"
-    	   + "name := "
-    	   +  name
-    	   + "}";
+    return "PlaceOwner{ name := " + name + " }";
   }
 }

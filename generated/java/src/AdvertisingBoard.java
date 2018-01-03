@@ -230,11 +230,25 @@ public class AdvertisingBoard {
     artistOffers = SetUtil.union(Utils.copy(artistOffers), SetUtil.set(ao));
   }
 
+  public void deleteArtistOffer(final ArtistOffer ao) {
+
+    artistOffers = SetUtil.diff(Utils.copy(artistOffers), SetUtil.set(ao));
+  }
+
   public void addBandRoleOffer(final BandRole br) {
 
     VDMSet newOffers = Utils.copy(((VDMSet) Utils.get(bandRoleOffers, br.getRole())));
     VDMMap newMap = null;
     newOffers = SetUtil.union(Utils.copy(newOffers), SetUtil.set(br));
+    newMap = MapUtil.map(new Maplet(br.getRole(), Utils.copy(newOffers)));
+    bandRoleOffers = MapUtil.override(Utils.copy(bandRoleOffers), Utils.copy(newMap));
+  }
+
+  public void deleteBandRoleOffer(final BandRole br) {
+
+    VDMSet newOffers = Utils.copy(((VDMSet) Utils.get(bandRoleOffers, br.getRole())));
+    VDMMap newMap = null;
+    newOffers = SetUtil.diff(Utils.copy(newOffers), SetUtil.set(br));
     newMap = MapUtil.map(new Maplet(br.getRole(), Utils.copy(newOffers)));
     bandRoleOffers = MapUtil.override(Utils.copy(bandRoleOffers), Utils.copy(newMap));
   }
@@ -252,14 +266,37 @@ public class AdvertisingBoard {
     roadieOffers = MapUtil.override(Utils.copy(roadieOffers), Utils.copy(newInMap));
   }
 
+  public void deleteRoadieOffer(final RoadieOffer oo) {
+
+    VDMSet newOffers = SetUtil.set();
+    VDMMap newInMap = null;
+    if (SetUtil.inSet(oo.getTask(), MapUtil.dom(Utils.copy(roadieOffers)))) {
+      newOffers = Utils.copy(((VDMSet) Utils.get(roadieOffers, oo.getTask())));
+    }
+
+    newOffers = SetUtil.diff(Utils.copy(newOffers), SetUtil.set(oo));
+    newInMap = MapUtil.map(new Maplet(oo.getTask(), Utils.copy(newOffers)));
+    roadieOffers = MapUtil.override(Utils.copy(roadieOffers), Utils.copy(newInMap));
+  }
+
   public void addPlaceOffer(final PlaceOffer po) {
 
     placeOffers = SetUtil.union(Utils.copy(placeOffers), SetUtil.set(po));
   }
 
+  public void deletePlaceOffer(final PlaceOffer po) {
+
+    placeOffers = SetUtil.diff(Utils.copy(placeOffers), SetUtil.set(po));
+  }
+
   public void addHireBandOffer(final HireBand hb) {
 
     hireBandOffers = SetUtil.union(Utils.copy(hireBandOffers), SetUtil.set(hb));
+  }
+
+  public void deleteHireBandOffer(final HireBand hb) {
+
+    hireBandOffers = SetUtil.diff(Utils.copy(hireBandOffers), SetUtil.set(hb));
   }
 
   public void addGig(final Gig g) {

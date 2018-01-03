@@ -82,6 +82,10 @@ public class JyveTest {
     assertEqual(SetUtil.set(), ab.listArtistOffers(quotes.BagpipesQuote.getInstance()));
     assertEqual(SetUtil.set(ao1, ao2), ab.listArtistOffers(quotes.GuitarQuote.getInstance()));
     assertEqual(SetUtil.set(ao2), ab.listArtistOffers(quotes.SaxophoneQuote.getInstance()));
+    ab.deleteArtistOffer(ao1);
+    assertEqual(SetUtil.set(ao2), ab.listArtistOffers());
+    assertEqual(SetUtil.set(ao2), ab.listArtistOffers(quotes.GuitarQuote.getInstance()));
+    assertEqual(SetUtil.set(ao2), ab.listArtistOffers(quotes.SaxophoneQuote.getInstance()));
   }
 
   private void testBand() {
@@ -119,7 +123,11 @@ public class JyveTest {
     ab.addBandRoleOffer(br3);
     assertEqual(SetUtil.set(br1, br2, br3), ab.listBandRoleOffers());
     assertEqual(SetUtil.set(br2), ab.listBandRoleOffers(quotes.DrumsQuote.getInstance()));
+    assertEqual(SetUtil.set(br3), ab.listBandRoleOffers(quotes.DJQuote.getInstance()));
     assertEqual(SetUtil.set(), ab.listBandRoleOffers(quotes.XylophoneQuote.getInstance()));
+    ab.deleteBandRoleOffer(br3);
+    assertEqual(SetUtil.set(br1, br2), ab.listBandRoleOffers());
+    assertEqual(SetUtil.set(), ab.listBandRoleOffers(quotes.DJQuote.getInstance()));
   }
 
   private void testGig() {
@@ -171,6 +179,8 @@ public class JyveTest {
     ab.addHireBandOffer(hb1);
     ab.addHireBandOffer(hb2);
     assertEqual(SetUtil.set(hb1, hb2), ab.listHireBandOffers());
+    ab.deleteHireBandOffer(hb1);
+    assertEqual(SetUtil.set(hb2), ab.listHireBandOffers());
   }
 
   private void testPlaceOffer() {
@@ -196,6 +206,11 @@ public class JyveTest {
     ab.addPlaceOffer(po3);
     assertEqual(SetUtil.set(po1, po2, po3), ab.listPlaceOffers());
     assertEqual(SetUtil.set(po1), ab.listPlaceOffers(true, false, false));
+    assertEqual(SetUtil.set(po2), ab.listPlaceOffers(false, false, true));
+    assertEqual(SetUtil.set(po3), ab.listPlaceOffers(false, true, false));
+    ab.deletePlaceOffer(po1);
+    assertEqual(SetUtil.set(po2, po3), ab.listPlaceOffers());
+    assertEqual(SetUtil.set(), ab.listPlaceOffers(true, false, false));
     assertEqual(SetUtil.set(po2), ab.listPlaceOffers(false, false, true));
     assertEqual(SetUtil.set(po3), ab.listPlaceOffers(false, true, false));
   }
@@ -226,6 +241,9 @@ public class JyveTest {
     ab.addRoadieOffer(ro3);
     assertEqual(SetUtil.set(ro1, ro2, ro3), ab.listRoadieOffers());
     assertEqual(SetUtil.set(ro1, ro3), ab.listRoadieOffers(quotes.EngineerQuote.getInstance()));
+    ab.deleteRoadieOffer(ro1);
+    assertEqual(SetUtil.set(ro2, ro3), ab.listRoadieOffers());
+    assertEqual(SetUtil.set(ro3), ab.listRoadieOffers(quotes.EngineerQuote.getInstance()));
   }
 
   private void testStudio() {

@@ -51,9 +51,9 @@ public class Band extends Profile {
   public String toString() {
 
     return "Band{"
-    	+ "name := "
-    	+  name
-        + " genres := "
+    	+ "name:= " 
+    	+ name
+        + ", genres := "
         + Utils.toString(genres)
         + "}";
   }

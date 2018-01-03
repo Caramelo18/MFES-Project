@@ -37,8 +37,6 @@ public class Artist extends Profile {
 
   public String toString() {
 
-    return "Artist{" 
-        	+ "name := "
-        	+  name + " instruments := " + Utils.toString(instruments) + "}";
+    return "Artist{ name := " + name  + ", instruments := " + Utils.toString(instruments) + "}";
   }
 }

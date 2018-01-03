@@ -73,7 +73,6 @@ public class JyveMenu {
 		 
 		System.out.println("Venues Menu\n");
 		System.out.println(" 1. Create Venue");
-		System.out.println(" 2. Edit Venue");
 		System.out.println(" 0. Back\n");
 		
 		 
@@ -84,10 +83,6 @@ public class JyveMenu {
 		switch (op) {
 		case "1":
 			createVenue();
-			venuesMenu();
-			break;
-		case "2":
-			//editVenue();
 			venuesMenu();
 			break;
 		case "0":
@@ -141,7 +136,6 @@ public class JyveMenu {
 		 
 		System.out.println("Studios Menu\n");
 		System.out.println(" 1. Create Studio");
-		System.out.println(" 2. Edit Studio");
 		System.out.println(" 0. Back\n");
 		
 		 
@@ -152,10 +146,6 @@ public class JyveMenu {
 		switch (op) {
 		case "1":
 			createStudio();
-			studiosMenu();
-			break;
-		case "2":
-			//editStudio();
 			studiosMenu();
 			break;
 		case "0":
@@ -230,150 +220,6 @@ public class JyveMenu {
 		Studio s = new Studio(po, loc, sa, rehearsal, recording);
 		System.out.println("Studio " + s.toString() + " created with success");
 	}
-
-//	private static void profileMenu() {
-//		 
-//		System.out.println("Profile Menu\n");
-//		System.out.println(" 1. Artists");
-//		System.out.println(" 2. Bands");
-//		System.out.println(" 3. Roadies");
-//		System.out.println(" 4. Place Owners");
-//		System.out.println(" 0. Back\n");
-//		
-//		 
-//		System.out.println("Option: ");
-//		String op = reader.nextLine();
-//		 
-//		
-//		switch (op) {
-//		case "1":
-//			artistsMenu();
-//			break;
-//		case "2":
-//			bandsMenu();
-//			break;
-//		case "3":
-//			roadiesMenu();
-//			break;
-//		case "4":
-//			placeOwnersMenu();
-//			break;
-//		case "0":
-//			mainMenu();
-//			break;
-//		default:
-//			profileMenu();
-//			break;
-//		}
-//	}
-//
-//	private static void placeOwnersMenu() {
-//		 
-//		System.out.println("Place Owners Menu\n");
-//		System.out.println(" 1. Create Place Owner");
-//		System.out.println(" 0. Back\n");
-//		
-//		 
-//		System.out.println("Option: ");
-//		String op = reader.nextLine();
-//		 
-//		
-//		switch (op) {
-//		case "1":
-//			//createPlaceOwner();
-//			break;
-//		case "0":
-//			profileMenu();
-//			break;
-//		default:
-//			placeOwnersMenu();
-//			break;
-//		}		
-//	}
-//
-//	private static void roadiesMenu() {
-//		 
-//		System.out.println("Roadies Menu\n");
-//		System.out.println(" 1. Create Roadie");
-//		System.out.println(" 2. Edit Roadie");
-//		System.out.println(" 0. Back\n");
-//		
-//		 
-//		System.out.println("Option: ");
-//		String op = reader.nextLine();
-//		 
-//		
-//		switch (op) {
-//		case "1":
-//			//createRoadie();
-//			break;
-//		case "2":
-//			//editRoadie();
-//			break;
-//		case "0":
-//			profileMenu();
-//			break;
-//		default:
-//			roadiesMenu();
-//			break;
-//		}	
-//	}
-//
-//	private static void bandsMenu() {
-//		 
-//		System.out.println("Bands Menu\n");
-//		System.out.println(" 1. Create Band");
-//		System.out.println(" 2. Edit Band");
-//		System.out.println(" 0. Back\n");
-//		
-//		 
-//		System.out.println("Option: ");
-//		String op = reader.nextLine();
-//		 
-//		
-//		switch (op) {
-//		case "1":
-//			//createBand();
-//			break;
-//		case "2":
-//			//editBand();
-//			break;
-//		case "0":
-//			profileMenu();
-//			break;
-//		default:
-//			bandsMenu();
-//			break;
-//		}	
-//	}
-//
-//	private static void artistsMenu() {
-//		 
-//		System.out.println("Artists Menu\n");
-//		System.out.println(" 1. Create Artist");
-//		System.out.println(" 2. Edit Artist");
-//		System.out.println(" 0. Back\n");
-//		
-//		 
-//		System.out.println("Option: ");
-//		String op = reader.nextLine();
-//		 
-//		
-//		switch (op) {
-//		case "1":
-//			//createArtist();
-//			break;
-//		case "2":
-//			//editRoadie();
-//			break;
-//		case "0":
-//			profileMenu();
-//			break;
-//		default:
-//			artistsMenu();
-//			break;
-//		}	
-//	}
 
 	private static void advertisingBoard() {
 		 
@@ -551,7 +397,7 @@ public class JyveMenu {
 		System.out.println("Gigs by date: \n");
 		JyveUtils.Date date = null;
 		
-		while(date.equals(null))
+		while(date == null)
 			date = createDate();
 		
 		VDMSet offers = ab.listGigs(date);

@@ -32,8 +32,6 @@ public class Roadie extends Profile {
 
   public String toString() {
 
-    return "Roadie{" 
-        	+ "name := "
-        	+  name + " task := " + Utils.toString(task) + "}";
+    return "Roadie{ name := " + name + ", task := " + Utils.toString(task) + "}";
   }
 }
