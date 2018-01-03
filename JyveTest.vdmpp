@@ -92,6 +92,11 @@ class JyveTest
 			assertEqual({ao1, ao2}, ab.listArtistOffers(<Guitar>));
 			assertEqual({ao2}, ab.listArtistOffers(<Saxophone>));
 			
+			ab.deleteArtistOffer(ao1);
+			assertEqual({ao2}, ab.listArtistOffers());
+			assertEqual({ao2}, ab.listArtistOffers(<Guitar>));
+			assertEqual({ao2}, ab.listArtistOffers(<Saxophone>));
+			
     );
     
     private testBand: () ==> ()
@@ -130,7 +135,13 @@ class JyveTest
     	
     	assertEqual({br1, br2, br3}, ab.listBandRoleOffers());
     	assertEqual({br2}, ab.listBandRoleOffers(<Drums>));
+    	assertEqual({br3}, ab.listBandRoleOffers(<DJ>));
     	assertEqual({}, ab.listBandRoleOffers(<Xylophone>));
+    	
+    	ab.deleteBandRoleOffer(br3);
+    	assertEqual({br1, br2}, ab.listBandRoleOffers());
+    	assertEqual({}, ab.listBandRoleOffers(<DJ>));
+    	
     );
     
     private testGig: () ==> ()
@@ -186,6 +197,10 @@ class JyveTest
     	ab.addHireBandOffer(hb1);
     	ab.addHireBandOffer(hb2);
     	assertEqual({hb1, hb2}, ab.listHireBandOffers());
+    	
+    	ab.deleteHireBandOffer(hb1);
+    	assertEqual({hb2}, ab.listHireBandOffers());
+    	
     );
     
     private testPlaceOffer: () ==> ()
@@ -211,6 +226,13 @@ class JyveTest
     	assertEqual({po1, po2, po3}, ab.listPlaceOffers());
     	
     	assertEqual({po1}, ab.listPlaceOffers(true, false, false));
+    	assertEqual({po2}, ab.listPlaceOffers(false, false, true));
+    	assertEqual({po3}, ab.listPlaceOffers(false, true, false));
+    	
+    	ab.deletePlaceOffer(po1);
+    	assertEqual({po2, po3}, ab.listPlaceOffers());
+    	
+    	assertEqual({}, ab.listPlaceOffers(true, false, false));
     	assertEqual({po2}, ab.listPlaceOffers(false, false, true));
     	assertEqual({po3}, ab.listPlaceOffers(false, true, false));
     	
@@ -245,6 +267,12 @@ class JyveTest
     	assertEqual({ro1, ro2, ro3}, ab.listRoadieOffers());
     	
     	assertEqual({ro1, ro3}, ab.listRoadieOffers(<Engineer>));
+    	
+    	ab.deleteRoadieOffer(ro1);
+    	
+    	assertEqual({ro2, ro3}, ab.listRoadieOffers());
+    	assertEqual({ro3}, ab.listRoadieOffers(<Engineer>));
+
     );
         
     private testStudio: () ==> ()

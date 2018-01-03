@@ -202,6 +202,14 @@ class AdvertisingBoard
 		pre ao not in set artistOffers
 		post ao in set artistOffers;
 		
+		-- deletes an artist offer from the board
+		public deleteArtistOffer: ArtistOffer ==> ()
+		deleteArtistOffer(ao) == (
+			artistOffers := artistOffers \ {ao};
+		)
+		pre ao in set artistOffers
+		post ao not in set artistOffers;
+		
 		-- adds a band role offer to the board
 		public addBandRoleOffer: BandRole ==> ()
 		addBandRoleOffer(br) == (
@@ -212,6 +220,17 @@ class AdvertisingBoard
 		)
 		pre br not in set listBandRoleOffers()
 		post br in set listBandRoleOffers();
+		
+		-- deletes a band role offer from the board
+		public deleteBandRoleOffer: BandRole ==> ()
+		deleteBandRoleOffer(br) == (
+			dcl newOffers: set of BandRole := bandRoleOffers(br.getRole()), newMap: map JyveUtils`Instrument to (set of BandRole);
+			newOffers:= newOffers \ {br};
+			newMap := {br.getRole() |-> newOffers};
+			bandRoleOffers := bandRoleOffers ++ newMap;
+		)
+		pre br in set listBandRoleOffers()
+		post br not in set listBandRoleOffers();
 		
 		-- adds a roadie offer to the board
 		public addRoadieOffer: RoadieOffer ==> ()
@@ -228,6 +247,22 @@ class AdvertisingBoard
 		pre oo not in set listRoadieOffers()
 		post oo in set listRoadieOffers();
 		
+		-- delete roadie offer from the board
+		public deleteRoadieOffer: RoadieOffer ==> ()
+		deleteRoadieOffer(oo) == (
+			dcl newOffers: set of RoadieOffer := {}, newInMap: inmap JyveUtils`Task to (set of RoadieOffer);
+			
+			if oo.getTask() in set dom roadieOffers then
+				newOffers := roadieOffers(oo.getTask());
+			
+			newOffers := newOffers \ {oo};
+			newInMap := {oo.getTask() |-> newOffers};
+			roadieOffers := roadieOffers ++ newInMap;
+		)
+		pre oo in set listRoadieOffers()
+		post oo not in set listRoadieOffers();
+		
+		
 		-- adds a place offer to the board
 		public addPlaceOffer: PlaceOffer ==> ()
 		addPlaceOffer(po) == (
@@ -235,6 +270,14 @@ class AdvertisingBoard
 		)
 		pre po not in set placeOffers
 		post po in set placeOffers;
+		
+		-- deletes a place offer from the board
+		public deletePlaceOffer: PlaceOffer ==> ()
+		deletePlaceOffer(po) == (
+			placeOffers := placeOffers \ {po};
+		)
+		pre po in set placeOffers
+		post po not in set placeOffers;
 		
 		-- adds an offer to hire a band to the board
 		public addHireBandOffer: HireBand ==> ()
@@ -244,6 +287,14 @@ class AdvertisingBoard
 		pre hb not in set hireBandOffers
 		post hb in set hireBandOffers;
 		
+		public deleteHireBandOffer: HireBand ==> ()
+		deleteHireBandOffer(hb) == (
+			hireBandOffers := hireBandOffers \ {hb};
+		)
+		pre hb in set hireBandOffers
+		post hb not in set hireBandOffers;
+		
+				
 		-- adds a gig
 		public addGig: Gig ==> ()
 		addGig(g) == (
