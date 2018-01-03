@@ -4,6 +4,7 @@ class RoadieOffer is subclass of Offer
 	  task: JyveUtils`Task;
 	
 	operations
+		-- default roadie offer, receives a band (creates the offer) and the desired task
 	  public  RoadieOffer : Band * JyveUtils`Task ==> RoadieOffer
 	  RoadieOffer(b, t) == (
 	  	band := b;
@@ -11,6 +12,7 @@ class RoadieOffer is subclass of Offer
 	  	return self;
 	  );
 	  
+	  -- returns the desired task
 	  public getTask: () ==> JyveUtils`Task
 	  getTask() == (
 	  	return task;

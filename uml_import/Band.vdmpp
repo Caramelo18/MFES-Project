@@ -3,10 +3,12 @@ class Band is subclass of Profile
 	  genres:set of (JyveUtils`Genre);
 	  public gigs: set of Gig;
 	  
+	  -- a band can not have two gigs in the same day
 	  inv not exists g1, g2 in set gigs &
 	  		g1 <> g2 and g1.getDate() = g2.getDate();
 	
 	operations
+		-- default constructor of band, receives a string (band name) as an argument)
 		public Band: seq of char ==> Band
 		Band(n) == (
 			name:= n;
@@ -15,11 +17,13 @@ class Band is subclass of Profile
 			return self;
 		);
 		
+		-- returns band genres
 		public getGenres: () ==> set of JyveUtils`Genre
 		getGenres() == (
 			return genres;
 		);
 		
+		-- adds a genre to the band
 	  public  addGenre : JyveUtils`Genre  ==> ()
 	  addGenre(g) == (
 	  	genres:= genres union {g};
@@ -27,19 +31,22 @@ class Band is subclass of Profile
 	  pre g not in set genres
 	  post g in set genres;
 	
+		-- deletes a genre from the band
 	  public  deleteGenre : JyveUtils`Genre  ==> ()
 	  deleteGenre(g) == (
 	  	genres:= genres \ {g};
 	  )
 	  pre g in set genres
 	  post g not in set genres;
-	  	  
+	  	
+	  -- returns the gigs the band participated
 	  public getGigs: () ==> set of Gig
 	  getGigs() == (
 	  	return gigs;
 	  )	
 	  post gigs = gigs~ and RESULT = gigs;
 	  
+	  -- sets the gigs the band participated
 	  public setGigs: set of Gig ==> bool
 	  setGigs(g) == (
 	  	gigs := g;

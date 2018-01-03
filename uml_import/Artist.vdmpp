@@ -3,13 +3,15 @@ class Artist is subclass of Profile
 	  instruments:set of (JyveUtils`Instrument);
 	
 	operations
+		-- default artist constructor, receives a string as an argument - the artist name
 		public Artist : seq of char ==> Artist
 		Artist(n) == (
 			name := n;
 			instruments := {};
 			return self;
 		);
-	
+		
+		-- adds an instrument to an artist
 		public addInstrument : JyveUtils`Instrument ==> ()
 	  addInstrument(i) == (
 	    instruments:= instruments union {i};
@@ -17,6 +19,7 @@ class Artist is subclass of Profile
 	  pre i not in set instruments
 	  post i in set instruments;
 	
+		-- removes an instrument from an artist
 	  public  deleteInstrument : JyveUtils`Instrument  ==> ()
 	  deleteInstrument(i) == (
 	  	instruments := instruments \ {i};
@@ -24,6 +27,7 @@ class Artist is subclass of Profile
 	  pre i in set instruments
 	  post i not in set instruments;
 	  
+	  -- returns true when an artist plays a given instrument, false otherwise
 	  pure public playsInstrument: JyveUtils`Instrument ==> bool
 	  playsInstrument(i) == (
 	  	return i in set instruments;

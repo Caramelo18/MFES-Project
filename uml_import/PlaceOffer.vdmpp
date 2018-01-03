@@ -3,12 +3,14 @@ class PlaceOffer is subclass of Offer
 	  place: Place;
 	
 	operations
+		-- creates a place offer - receives a place as an argument
 	  public  PlaceOffer : Place  ==> PlaceOffer
 	  PlaceOffer(rp) == (
 	  	place := rp;
 	  	return self;
 	  );
 	  
+	  -- returns the place being offered
 	  public getPlace: () ==> Place
 	  getPlace() == (
 	  	return place

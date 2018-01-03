@@ -4,10 +4,11 @@ class Gig
 	  venue: Venue;
 	  date: JyveUtils`Date;
 	  
-	  inv bandIsConsistent();
-	  inv venueIsConsistent();
+	  inv bandIsConsistent(); -- all the bands that participate in a gig must have the gig in their records
+	  inv venueIsConsistent(); -- the venue where the gig is happening must have the gig in their records
 	
 	operations
+		-- default gig constructor, receives a venue and a date as arguments
 		public Gig : Venue * JyveUtils`Date ==> Gig
 		Gig(v, d) == (
 			dcl result: bool, venueGigs: set of Gig := v.gigs;
@@ -21,6 +22,7 @@ class Gig
 			return self;
 		);
 		
+		-- adds a band to a gig
 	  public addBand : Band  ==> bool
 	  addBand(b) == (
 	  	dcl complete: bool := false;
@@ -37,19 +39,22 @@ class Gig
 	  pre b not in set performingBands
 	  post b in set performingBands
 	  		and RESULT;
-	
+		
+		-- returns the gig date
 		pure public getDate: () ==> JyveUtils`Date
 		getDate() == (
 			return date;
 		)
 		post date = date~ and RESULT = date;
 		
+		-- returns the gig venue
 		pure public getVenue: () ==> Venue
 		getVenue() == (
 			return venue;
 		)
 		post venue = venue~ and RESULT = venue;
 		
+		-- returns the band that will participate in the gig
 		public getBands: () ==> set of Band
 		getBands() == (
 			return performingBands;

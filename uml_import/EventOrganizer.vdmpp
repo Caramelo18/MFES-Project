@@ -1,6 +1,7 @@
 class EventOrganizer is subclass of Profile
 
 	operations
+		-- creates an event organizer, receives a string, the name, as an argument
 		public EventOrganizer: seq of char ==> EventOrganizer
 		EventOrganizer(n) == (
 			name:= n;

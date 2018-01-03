@@ -3,11 +3,14 @@ class Profile
 	  protected name: seq of char;
 	
 	operations	
+		-- unnused constructor, Profile is an abstract class
 		public Profile: seq of char ==> Profile
 		Profile(n) == (
 			name:= n;
 			return self;
 		);
+		
+		-- changes the name of a profile
 	  public  changeName : seq of char  ==> ()
 	  changeName(nn) == (
 	  	name := nn;
@@ -15,6 +18,7 @@ class Profile
 	  pre name <> nn
 	  post name = nn;
 	  
+	  -- returns the name of a profile
 	  public getName: () ==> seq of char
 	  getName() == (
 	  	return name;

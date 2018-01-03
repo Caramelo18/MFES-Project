@@ -1,6 +1,7 @@
 class PlaceOwner is subclass of Profile
 
 	operations
+		-- creates a place owner, receives a name (string) as an argument
 		public PlaceOwner: seq of char ==> PlaceOwner
 		PlaceOwner(n) == (
 			name:= n;

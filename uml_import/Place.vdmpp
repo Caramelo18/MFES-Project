@@ -6,6 +6,7 @@ class Place
 	  inv stageArea > 0;
 	  
 	operations
+		-- unnused constructor, Place is an abstract class
 	  public Place: PlaceOwner * seq of char * nat1 ==> Place 
 	  Place(po, l, sa) == (
 	  	placeOwner := po;
@@ -14,6 +15,7 @@ class Place
 	  	return self;
 	  );
 	  
+	  -- changes the area
 	  public changeStageArea : nat1 ==> ()
 		changeStageArea(nsa) == (
 			stageArea := nsa;
@@ -21,6 +23,7 @@ class Place
 		pre stageArea <> nsa
 		post stageArea = nsa;
 		
+		-- returns the stage area
 		public getStageArea: () ==> nat1
 		getStageArea() == (
 			return stageArea;

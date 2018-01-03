@@ -5,6 +5,8 @@ class Studio is subclass of Place
 	  inv rehearsal <> recording;
 	  
 	operations
+		-- studio constructor: the arguments are: a place owner, the location (on a string), the stage area (in m2)
+		-- and twoo booleans, indicating if its rehearsal or a recording studio
 		public Studio : PlaceOwner * seq of char * nat1 * bool * bool  ==> Studio
 		Studio(po, loc, sa, reh, rec) == (
 			placeOwner := po;
@@ -17,7 +19,8 @@ class Studio is subclass of Place
 		)
 		pre reh <> rec
 		post rehearsal <> recording;
-				
+		
+		-- sets the studio to rehearsal
 		public setRehearsal: () ==> ()
 		setRehearsal() == (
 			atomic(
@@ -27,6 +30,7 @@ class Studio is subclass of Place
 		)
 		post rehearsal = true;
 		
+		-- sets the studio to recording
 		public setRecording: () ==> ()
 		setRecording() == (
 			atomic(
@@ -36,11 +40,13 @@ class Studio is subclass of Place
 		)
 		post recording = true;
 		
+		-- returns true if the place is a rehearsal studio, false otherwise
 		public isRehearsal: () ==> bool
 		isRehearsal() == (
 			return rehearsal;
 		);
 		
+		-- returns true if the place is a recording studio, false otherwise
 		public isRecording: () ==> bool
 		isRecording() == (
 			return recording;

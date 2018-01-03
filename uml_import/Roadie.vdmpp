@@ -3,6 +3,7 @@ class Roadie is subclass of Profile
 	  task: JyveUtils`Task;
 	
 	operations
+		-- default roadie constructor, receives a string (name) and a task as arguments
 		public Roadie : seq of char * JyveUtils`Task ==> Roadie
 		Roadie(n, t) == (
 			name:= n;
@@ -10,6 +11,7 @@ class Roadie is subclass of Profile
 			return self;
 		);
 		
+		-- sets the roadie tasks
 	  public setTask : JyveUtils`Task  ==> ()
 	  setTask(nt) ==(
 	  	task := nt;
@@ -17,6 +19,7 @@ class Roadie is subclass of Profile
 	  pre task <> nt
 	  post task = nt;
 	  
+	  -- returns the roadie task
 	  public getTask: () ==> JyveUtils`Task
 	  getTask() == (
 	  	return task;

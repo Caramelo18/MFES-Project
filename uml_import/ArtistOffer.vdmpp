@@ -3,12 +3,14 @@ instance variables
   artist: Artist;
 
 operations
+	-- creates an artist offer, receives an artist as argument
   public  ArtistOffer : Artist  ==> ArtistOffer
   ArtistOffer(a) == (
   	artist := a;
   	return self;
   );
   
+  -- returns the artist associated with the artist offer
   pure public getArtist: () ==> Artist
   getArtist() == (
   	return artist;

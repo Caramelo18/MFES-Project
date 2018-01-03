@@ -5,6 +5,7 @@ class HireBand is subclass of Offer
 	  date: JyveUtils`Date;
 	
 	operations
+		-- creates a offer to hire a band, receives an event organizer, a string (event location) and the date as arguments
 		public HireBand : EventOrganizer * seq of char * JyveUtils`Date ==> HireBand
 		HireBand(e, l, d) == (
 			eventOrganizer := e;

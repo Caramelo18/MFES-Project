@@ -9,6 +9,7 @@ class AdvertisingBoard
 		static places: seq of Place := [];
 		
 	operations
+		-- initializes the place where all the offers will be stored
 		public AdvertisingBoard: () ==> AdvertisingBoard
 		AdvertisingBoard() == ( 
 			
@@ -24,14 +25,14 @@ class AdvertisingBoard
 			return self;
 		);
 		
-		
+		-- lists the artist offers
 		public listArtistOffers: () ==> set of ArtistOffer
 		listArtistOffers() == (
 			return artistOffers;
 		)
 		post artistOffers = artistOffers~;
 		
-		
+		-- lists the artist offers where an artist plays a given instrument
 		public listArtistOffers: JyveUtils`Instrument ==> set of ArtistOffer
 		listArtistOffers(i) == (
 			dcl list : set of ArtistOffer := {};
@@ -46,7 +47,7 @@ class AdvertisingBoard
 		post artistOffers = artistOffers~
 				and forall artistOffer in set RESULT & artistOffer.getArtist().playsInstrument(i);
 		
-		
+		-- lists all the band role offers 
 		pure public listBandRoleOffers: () ==> set of BandRole
 		listBandRoleOffers() == (
 			dcl list: set of BandRole := {};
@@ -58,7 +59,7 @@ class AdvertisingBoard
 		)
 		post bandRoleOffers = bandRoleOffers~;
 		
-		
+		-- lists all the band role offers of a given instrument
 		pure public listBandRoleOffers: JyveUtils`Instrument ==> set of BandRole
 		listBandRoleOffers(i) == (		
 			return bandRoleOffers(i);
@@ -66,7 +67,7 @@ class AdvertisingBoard
 		post bandRoleOffers = bandRoleOffers~
 				and forall bandRoleOffer in set RESULT & i = bandRoleOffer.getRole();
 		
-		
+		-- lists all the roadie offers
 		pure public listRoadieOffers: () ==> set of RoadieOffer
 		listRoadieOffers() == (
 			dcl res: set of RoadieOffer := {};
@@ -78,19 +79,21 @@ class AdvertisingBoard
 		)
 		post roadieOffers = roadieOffers~;
 		
+		-- lists all the roadie offers of a given task
 		public listRoadieOffers: JyveUtils`Task ==> set of RoadieOffer
 		listRoadieOffers(task) == (
 			return roadieOffers(task);
 		)
 		post roadieOffers = roadieOffers~;
 		
-		
+		-- lists all the place offers (studios or venues)
 		public listPlaceOffers: () ==> set of PlaceOffer
 		listPlaceOffers() == (
 			return placeOffers;
 		)
 		post placeOffers = placeOffers~;
 		
+		-- lists the place offers filtered, venues or studio (rehearsal or recording)
 		public listPlaceOffers: bool * bool * bool ==> set of PlaceOffer
 		listPlaceOffers(venue, rehearsal, recording) == (
 			dcl list: set of PlaceOffer:= {};
@@ -113,6 +116,7 @@ class AdvertisingBoard
 			or (not venue and (rehearsal <> recording))
 		post placeOffers = placeOffers~;
 		
+		-- lists all the available venues on a given date
 		public listAvailableVenues: JyveUtils`Date ==> set of PlaceOffer
 		listAvailableVenues(date) == (
 			dcl list: set of PlaceOffer:= {};
@@ -128,19 +132,21 @@ class AdvertisingBoard
 			return list;
 		);
 		
-		
+		-- lists all the offers for a band
 		public listHireBandOffers: () ==> set of HireBand
 		listHireBandOffers() == (
 			return hireBandOffers;
 		)
 		post hireBandOffers = hireBandOffers~;
 		
+		-- lists all the gigs
 		public listGigs: () ==> set of Gig
 		listGigs() == (
 			return gigs;
 		)
 		post gigs = gigs~;
 		
+		-- lists all the gigs on a venue
 		public listGigs: Venue ==> set of Gig
 		listGigs(v) == (
 			dcl gs: set of Gig := {};
@@ -154,6 +160,7 @@ class AdvertisingBoard
 		)
 		post gigs = gigs~;
 		
+		-- lists all the gigs on a date
 		public listGigs: JyveUtils`Date ==> set of Gig
 		listGigs(d) == (
 			dcl gs: set of Gig := {};
@@ -167,12 +174,14 @@ class AdvertisingBoard
 		)
 		post gigs = gigs~;
 		
+		-- lists all the places
 		public static listPlaces: () ==> seq of Place
 		listPlaces() == (
 			return places;
 		)
 		post places = places~;
 		
+		-- lists all the venues
 		public static listVenues: () ==> seq of Venue
 		listVenues() == (
 			dcl res: seq of Venue := [];
@@ -185,6 +194,7 @@ class AdvertisingBoard
 		)
 		post places = places~;
 		
+		-- adds an artist offer to the board
 		public addArtistOffer: ArtistOffer ==> ()
 		addArtistOffer(ao) == (
 			artistOffers := artistOffers union {ao};
@@ -192,6 +202,7 @@ class AdvertisingBoard
 		pre ao not in set artistOffers
 		post ao in set artistOffers;
 		
+		-- adds a band role offer to the board
 		public addBandRoleOffer: BandRole ==> ()
 		addBandRoleOffer(br) == (
 			dcl newOffers: set of BandRole := bandRoleOffers(br.getRole()), newMap: map JyveUtils`Instrument to (set of BandRole);
@@ -202,6 +213,7 @@ class AdvertisingBoard
 		pre br not in set listBandRoleOffers()
 		post br in set listBandRoleOffers();
 		
+		-- adds a roadie offer to the board
 		public addRoadieOffer: RoadieOffer ==> ()
 		addRoadieOffer(oo) == (
 			dcl newOffers: set of RoadieOffer := {}, newInMap: inmap JyveUtils`Task to (set of RoadieOffer);
@@ -216,6 +228,7 @@ class AdvertisingBoard
 		pre oo not in set listRoadieOffers()
 		post oo in set listRoadieOffers();
 		
+		-- adds a place offer to the board
 		public addPlaceOffer: PlaceOffer ==> ()
 		addPlaceOffer(po) == (
 			placeOffers := placeOffers union {po};
@@ -223,6 +236,7 @@ class AdvertisingBoard
 		pre po not in set placeOffers
 		post po in set placeOffers;
 		
+		-- adds an offer to hire a band to the board
 		public addHireBandOffer: HireBand ==> ()
 		addHireBandOffer(hb) == (
 			hireBandOffers := hireBandOffers union {hb};
@@ -230,6 +244,7 @@ class AdvertisingBoard
 		pre hb not in set hireBandOffers
 		post hb in set hireBandOffers;
 		
+		-- adds a gig
 		public addGig: Gig ==> ()
 		addGig(g) == (
 			gigs := gigs union {g};
@@ -237,6 +252,7 @@ class AdvertisingBoard
 		pre g not in set gigs
 		post g in set gigs;
 		
+		-- adds a place
 		public static addPlace: Place ==> ()
 		addPlace(p) == (
 			places := places ^[p];

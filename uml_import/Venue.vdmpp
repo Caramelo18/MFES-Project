@@ -9,6 +9,8 @@ class Venue is subclass of Place
 	  		g1 <> g2 and g1.getDate() = g2.getDate();
 	  
 	operations
+		-- creates a venue with the following arguments: the place owner, the location (string), the stage area (m2)
+		-- the capacity (integer), a brief description of the lighting conditions (string) as well as the sound description
 		public Venue : PlaceOwner * seq of char * nat1 * nat1 * seq of char * seq of char ==> Venue
 		Venue(po, loc, sa, cap, lig, s) == (
 			placeOwner := po;
@@ -24,6 +26,7 @@ class Venue is subclass of Place
 		pre cap > 0	
 		post capacity > 0;
 		
+		-- sets the venue gigs
 		public setGigs: set of Gig ==> bool
 	  setGigs(g) == (
 	  	gigs := g;
@@ -31,6 +34,7 @@ class Venue is subclass of Place
 	  )
 	  post gigs = g;
 		
+		-- changes the venue capacity
 		public changeCapacity : nat1 ==> ()
 		changeCapacity(nc) == (
 			capacity := nc;
@@ -38,6 +42,7 @@ class Venue is subclass of Place
 		pre capacity <> nc
 		post capacity = nc;
 		
+		-- changes the venue lighting description
 		public changeLighting : seq of char ==> ()
 		changeLighting(nl) == (
 			lighting := nl;
@@ -45,6 +50,7 @@ class Venue is subclass of Place
 		pre lighting <> nl
 		post lighting = nl;
 		
+		-- changes the venue sound description
 		public changeSound : seq of char ==> ()
 		changeSound(ns) == (
 			sound := ns;
@@ -52,24 +58,28 @@ class Venue is subclass of Place
 		pre sound <> ns
 		post sound = ns;
 		
+		-- returns the capacity of the venue
 		public getCapacity: () ==> nat1
 		getCapacity() == (
 			return capacity;
 		)
 		post capacity = capacity~;
 		
+		-- returns the venue lighting description
 		public getLighting: () ==> seq of char
 		getLighting() == (
 			return lighting;
 		)
 		post lighting = lighting~;
 		
+		-- returns the venue sound description
 		public getSound: () ==> seq of char
 		getSound() == (
 			return sound;
 		)
 		post sound = sound~;
 		
+		-- returns true if the venue is available on a given date, false otherwise
 		public isAvailable: JyveUtils`Date ==> bool
 		isAvailable(date) == (
 			for all gig in set gigs do (

@@ -3,20 +3,20 @@ class JyveUtils
 			public Date  :: year : nat
 											month: nat
 											day  : nat
-					inv d == 
+					inv d ==  -- checks if a date is valid
 						d.year <= 2050 and d.year >= 2015 
 						and
 						d.month <= 12
 						and
 						d.day <= daysOfMonth(d.month);
-			public Genre = <Rock> | <Metal> | <Pop> | <HipHop> | <Jazz> | 
+			public Genre = <Rock> | <Metal> | <Pop> | <HipHop> | <Jazz> | -- list of possible genres
 										 <Electronic> | <Reggae> | <Classic> | <Alternative>;
-			public Instrument = <Guitar> | <Bass> | <Drums> | <Piano> | <Vocal> | <DJ> |
+			public Instrument = <Guitar> | <Bass> | <Drums> | <Piano> | <Vocal> | <DJ> | -- list of possible instruments
 													<Saxophone> | <Violin> | <Accordeon> | <Tuba> | <DoubleBass> |
 													<Viola> | <Cello> | <Xylophone> | <Bagpipes>;	 
-			public Task = <Manager> | <Engineer> | <SecurityGuard> | <InstrumentTech>;
+			public Task = <Manager> | <Engineer> | <SecurityGuard> | <InstrumentTech>; -- list of possible roadie tasks
 	functions
-			public daysOfMonth: nat1 -> nat1
+			public daysOfMonth: nat1 -> nat1 -- returns the number of days of a month depending on the given month - the leap years are not considered
 			daysOfMonth(month) ==
 					if month in set {1, 3, 5, 7, 8, 10, 12} then 31
 					else if month = 2 then 28

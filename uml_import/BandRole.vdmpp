@@ -4,6 +4,7 @@ class BandRole is subclass of Offer
 	  desired_role: JyveUtils`Instrument;
 	
 	operations
+		-- band role offer constructor, receives a band and the desired instrument as arguments
 	  public  BandRole : Band * JyveUtils`Instrument ==> BandRole
 	  BandRole(b, d) == (
 	  	band_role_offer := b;
@@ -11,6 +12,7 @@ class BandRole is subclass of Offer
 	  	return self;
 	  );
 	  
+	  -- returns the desired role (instrument) of the offer
 	  pure public getRole: () ==> JyveUtils`Instrument
 	  getRole() == ( 
 	  	return desired_role;
