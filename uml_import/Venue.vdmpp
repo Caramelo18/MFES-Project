@@ -4,8 +4,11 @@ class Venue is subclass of Place
 	  lighting: seq of char;
 	  sound: seq of char;
 	  public gigs: set of Gig;
-		inv capacity > 0;
-		inv not exists g1, g2 in set gigs &
+	  
+		inv capacity > 0; -- the capacity must be greater than 0
+		
+		-- there can not be two gigs on the same venue on the same day
+		inv not exists g1, g2 in set gigs & 
 	  		g1 <> g2 and g1.getDate() = g2.getDate();
 	  
 	operations
