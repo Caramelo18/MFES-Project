@@ -97,8 +97,6 @@ public class Venue extends Place {
         + Utils.toString(lighting)
         + ", sound := "
         + Utils.toString(sound)
-        + ", gigs := "
-        + Utils.toString(gigs)
         + "}";
   }
 }
